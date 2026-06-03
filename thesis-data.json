@@ -1,5 +1,5 @@
 {
-  "dataVersion": 6,
+  "dataVersion": 7,
   "lastUpdate": "2026-06-03",
   "dramPrice": 82800,
   "dramPeriod": "5월 1-20일",
@@ -18,6 +18,10 @@
     "t3": true
   },
   "notes": [
+    {
+      "date": "2026-06-03",
+      "text": "[디자인] v7 — Thesis 탭 명칭 영문화, 헤더 가격 라벨 추가(5월 잠정/Trass · base scenario), 다크 카드 깊이/타이포 정제"
+    },
     {
       "date": "2026-06-03",
       "text": "[테스트] Cloudflare Pages URL 자동 배포 파이프라인 점검 (이 메모가 사이트에 보이면 성공)"
