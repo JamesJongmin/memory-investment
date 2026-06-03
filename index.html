@@ -3,7 +3,7 @@
 {
   "name": "Jb Memory Dashboard",
   "schemaVersion": 1,
-  "description": "메모리 반도체 투자 대시보드. 7개 탭(Thesis/단가/수요/공급/전환/촉매/매도)으로 DRAM/NAND 수출단가, 4파동 수요, 공급바닥, P/E 재평가, 촉매, 매도 시그널을 한 화면에서 추적. 데이터는 로컬 thesis-data.json(매일 스케줄 작업이 갱신)에서 가져와 스냅샷으로 인라인됨."
+  "description": "메모리 반도체 투자 대시보드. 7개 탭(Thesis/단가/수요/공급/전환/촉매/매도)으로 DRAM/NAND 수출단가, 4파동 수요, 공급바닥, P/E 재평가, 촉매, 매도 시그널을 한 화면에서 추적."
 }
 </script>
 <html lang="ko">
@@ -49,131 +49,67 @@
   *, *::before, *::after { box-sizing: border-box; }
   html, body {
     margin: 0; padding: 0;
-    background: var(--bg);
-    background-image: var(--bg-grad);
+    background: var(--bg); background-image: var(--bg-grad);
     color: var(--ink);
     font-family: "Pretendard", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    letter-spacing: -0.011em;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility; letter-spacing: -0.011em;
     font-feature-settings: "ss01", "cv11", "tnum";
   }
   .wrap { max-width: 520px; margin: 0 auto; padding-bottom: 60px; }
   .mono { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
 
-  /* Top status bar */
-  .live {
-    display:flex; align-items:center; justify-content:center; gap:10px;
-    padding:16px 20px 12px;
-    font-size:10.5px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase;
-    color:var(--ink-3);
-  }
+  .live { display:flex; align-items:center; justify-content:center; gap:10px; padding:16px 20px 12px; font-size:10.5px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3); }
   .live .dot { width:6px; height:6px; border-radius:50%; background:var(--green); box-shadow:0 0 0 3px rgba(5,150,105,0.16); animation:pulse 2.6s ease-in-out infinite; }
   .live .sep { width:3px; height:3px; border-radius:50%; background:var(--ink-4); opacity:0.6; }
   @keyframes pulse { 0%, 100% { opacity:1; transform:scale(1);} 50% { opacity:.55; transform:scale(1.18);} }
 
-  /* Header */
   .header { padding: 12px 28px 24px; }
   .header .meta-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:22px; gap:8px; }
   .header .pill { display:inline-flex; align-items:center; gap:6px; padding:7px 11px; border-radius:999px; background:var(--surface); border:1px solid var(--line); font-size:10.5px; font-weight:600; color:var(--ink-3); letter-spacing:0.01em; box-shadow:var(--shadow-sm); }
   .header .pill .v { color:var(--ink); font-weight:700; }
   .header .eyebrow { font-size:10.5px; color:var(--ink-3); font-weight:600; letter-spacing:0.16em; text-transform:uppercase; margin:0 0 12px; }
-  .header h1 {
-    font-size:40px; font-weight:800; margin:0; line-height:1.02;
-    letter-spacing:-0.04em; color:var(--ink);
-  }
+  .header h1 { font-size:40px; font-weight:800; margin:0; line-height:1.02; letter-spacing:-0.04em; color:var(--ink); }
   .header h1 .accent { color:var(--ink-4); font-weight:700; }
   .header .tag { font-size:14px; font-weight:500; color:var(--ink-3); margin:14px 0 0; letter-spacing:-0.008em; line-height:1.5; }
 
-  /* Tabs */
   .tabs-wrap { padding: 20px 14px 0; position: sticky; top: 0; z-index: 5; background: linear-gradient(180deg, var(--bg) 60%, transparent); }
-  .tabs {
-    display:flex; gap:2px; overflow-x:auto;
-    background:rgba(255,255,255,0.7);
-    border:1px solid var(--line);
-    backdrop-filter: saturate(160%) blur(24px);
-    -webkit-backdrop-filter: saturate(160%) blur(24px);
-    padding:5px;
-    border-radius:999px;
-    scrollbar-width:none;
-    box-shadow:var(--shadow-sm);
-  }
+  .tabs { display:flex; gap:2px; overflow-x:auto; background:rgba(255,255,255,0.7); border:1px solid var(--line); backdrop-filter: saturate(160%) blur(24px); -webkit-backdrop-filter: saturate(160%) blur(24px); padding:5px; border-radius:999px; scrollbar-width:none; box-shadow:var(--shadow-sm); }
   .tabs::-webkit-scrollbar { display:none; }
-  .tab {
-    background:transparent; border:none;
-    color:var(--ink-3); padding:10px 16px;
-    font-size:12.5px; font-weight:600; cursor:pointer; white-space:nowrap;
-    border-radius:999px;
-    letter-spacing:-0.005em;
-    transition: all .2s ease;
-    font-family:inherit;
-  }
+  .tab { background:transparent; border:none; color:var(--ink-3); padding:10px 16px; font-size:12.5px; font-weight:600; cursor:pointer; white-space:nowrap; border-radius:999px; letter-spacing:-0.005em; transition: all .2s ease; font-family:inherit; }
   .tab:hover { color:var(--ink); }
   .tab.active { color:#FFF; background:var(--ink); box-shadow:0 2px 6px rgba(8,9,11,0.18); }
 
-  /* Body */
   .body { padding:18px 14px 40px; }
-  .meta {
-    display:flex; align-items:center; gap:10px;
-    padding:11px 16px;
-    background:var(--surface); border:1px solid var(--line);
-    border-radius:var(--radius);
-    margin-bottom:14px;
-    font-size:11.5px; color:var(--ink-3); line-height:1.5;
-    box-shadow:var(--shadow-sm);
-  }
+  .meta { display:flex; align-items:center; gap:10px; padding:11px 16px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); margin-bottom:14px; font-size:11.5px; color:var(--ink-3); line-height:1.5; box-shadow:var(--shadow-sm); }
   .meta .badge-dot { width:7px; height:7px; border-radius:50%; background:var(--gold); flex-shrink:0; box-shadow:0 0 0 3px rgba(240,183,47,0.18); }
 
-  /* Cards */
-  .box {
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:var(--radius-lg);
-    padding:26px 24px;
-    margin-bottom:14px;
-    box-shadow:var(--shadow-md);
-  }
-  .thesisbox {
-    background: linear-gradient(160deg, #0A0B0F 0%, #16181F 100%);
-    color: #FFF;
-    border-radius:var(--radius-xl);
-    padding:34px 28px;
-    border:1px solid #20232B;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.4), 0 32px 64px -20px rgba(0,0,0,0.32);
-    position:relative;
-    overflow:hidden;
-  }
-  .thesisbox::before {
-    content:""; position:absolute; top:-50%; right:-20%;
-    width:380px; height:380px; border-radius:50%;
-    background: radial-gradient(circle, rgba(79,70,229,0.18) 0%, transparent 60%);
-    pointer-events:none;
-  }
-  .thesisbox::after {
-    content:""; position:absolute; bottom:-30%; left:-10%;
-    width:280px; height:280px; border-radius:50%;
-    background: radial-gradient(circle, rgba(240,183,47,0.06) 0%, transparent 60%);
-    pointer-events:none;
-  }
+  .box { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-lg); padding:26px 24px; margin-bottom:14px; box-shadow:var(--shadow-md); }
+  .thesisbox { background: linear-gradient(160deg, #0A0B0F 0%, #16181F 100%); color: #FFF; border-radius:var(--radius-xl); padding:34px 28px; border:1px solid #20232B; box-shadow: 0 1px 2px rgba(0,0,0,0.4), 0 32px 64px -20px rgba(0,0,0,0.32); position:relative; overflow:hidden; }
+  .thesisbox::before { content:""; position:absolute; top:-50%; right:-20%; width:380px; height:380px; border-radius:50%; background: radial-gradient(circle, rgba(79,70,229,0.18) 0%, transparent 60%); pointer-events:none; }
+  .thesisbox::after { content:""; position:absolute; bottom:-30%; left:-10%; width:280px; height:280px; border-radius:50%; background: radial-gradient(circle, rgba(240,183,47,0.06) 0%, transparent 60%); pointer-events:none; }
   .thesisbox > * { position:relative; }
 
-  .label {
-    font-size:10px; color:rgba(255,255,255,0.45);
-    font-weight:600; letter-spacing:0.22em; text-transform:uppercase;
-    margin:0 0 18px;
-  }
+  .label { font-size:10px; color:rgba(255,255,255,0.45); font-weight:600; letter-spacing:0.22em; text-transform:uppercase; margin:0 0 18px; }
   .pricehead-block { margin: 0 0 24px; }
-  .pricehead {
-    font-size:32px; font-weight:800; line-height:1.1;
-    letter-spacing:-0.035em;
-    margin:0;
-    color:#FFF;
-  }
+  .pricehead { font-size:32px; font-weight:800; line-height:1.1; letter-spacing:-0.035em; margin:0; color:#FFF; }
   .pricehead .arrow { display:inline-block; margin:0 6px; color:rgba(255,255,255,0.32); font-weight:500; font-size:24px; vertical-align:1px; }
   .pricehead-meta { font-size:11.5px; color:rgba(255,255,255,0.45); margin:10px 0 0; line-height:1.6; letter-spacing:-0.005em; font-weight:500; }
   .pricehead-meta .dot-sep { display:inline-block; width:3px; height:3px; border-radius:50%; background:rgba(255,255,255,0.3); margin:0 8px; vertical-align:3px; }
   .pricehead-meta .src { color:rgba(255,255,255,0.7); }
+
+  /* Chipflation badge */
+  .chipflation-badge {
+    display:inline-flex; align-items:center; gap:7px;
+    margin: 0 0 16px;
+    padding:6px 12px;
+    background:linear-gradient(90deg, rgba(220,38,38,0.18) 0%, rgba(240,183,47,0.18) 100%);
+    border:1px solid rgba(240,183,47,0.25);
+    border-radius:999px;
+    font-size:10.5px; font-weight:700; color:var(--gold);
+    letter-spacing:0.08em; text-transform:uppercase;
+  }
+  .chipflation-badge .pulse-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); animation:pulse 2.4s ease-in-out infinite; }
 
   .yellow { color:var(--gold); } .blue { color:#8AA0FF; } .red { color:#FF6B73; } .green { color:#4CDC8F; } .orange { color:#F5A33D; } .gray { color:var(--ink-4); } .lgray { color:var(--ink-4); }
 
@@ -189,13 +125,7 @@
 
   .thesis-divider { height:1px; background:linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%); margin:24px 0; }
 
-  .stat {
-    background:var(--surface-2);
-    border:1px solid var(--line-2);
-    border-radius:16px;
-    padding:18px 16px;
-    text-align:left;
-  }
+  .stat { background:var(--surface-2); border:1px solid var(--line-2); border-radius:16px; padding:18px 16px; text-align:left; }
   .stat p { margin:0; }
   .stat .l { font-size:10px; color:var(--ink-3); margin-bottom:10px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; }
   .stat .v { font-size:26px; font-weight:800; color:var(--ink); letter-spacing:-0.03em; line-height:1; }
@@ -214,12 +144,7 @@
   .num-row { padding:14px 0; border-bottom:1px solid var(--line-2); }
   .num-row:last-child { border-bottom:none; }
   .num-flex { display:flex; gap:14px; }
-  .num-dot {
-    background:var(--ink); color:#FFF; font-size:10px; font-weight:700;
-    width:22px; height:22px; border-radius:7px;
-    display:flex; align-items:center; justify-content:center; flex-shrink:0;
-    letter-spacing:0;
-  }
+  .num-dot { background:var(--ink); color:#FFF; font-size:10px; font-weight:700; width:22px; height:22px; border-radius:7px; display:flex; align-items:center; justify-content:center; flex-shrink:0; letter-spacing:0; }
   .num-title { font-size:13px; font-weight:700; margin:0 0 4px; color:var(--ink); letter-spacing:-0.01em; }
   .num-desc { font-size:11.5px; color:var(--ink-3); line-height:1.6; margin:0; }
 
@@ -295,14 +220,30 @@
   .tp-cell .tpl { font-size:9.5px; font-weight:700; color:var(--ink-3); margin:0 0 6px; letter-spacing:0.08em; text-transform:uppercase; }
   .tp-cell .tpv { font-size:19px; font-weight:800; color:var(--ink); margin:0; letter-spacing:-0.028em; }
   .tp-cell .tps { font-size:10.5px; color:var(--green); font-weight:600; margin:4px 0 0; letter-spacing:-0.005em; }
+
+  /* Allocation Stack tier viz */
+  .alloc-wrap { margin-top:18px; }
+  .alloc-row { display:flex; align-items:center; gap:10px; padding:10px 14px; margin-bottom:6px; border-radius:12px; }
+  .alloc-row .rank { font-size:11px; font-weight:800; width:24px; flex-shrink:0; }
+  .alloc-row .name { font-size:12px; font-weight:600; color:var(--ink); flex:1; letter-spacing:-0.005em; }
+  .alloc-row .priority { font-size:9.5px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:3px 9px; border-radius:999px; }
+  .alloc-row.t1 { background:#FDECEE; }
+  .alloc-row.t1 .rank, .alloc-row.t1 .priority { color:var(--red); }
+  .alloc-row.t1 .priority { background:rgba(220,38,38,0.1); }
+  .alloc-row.t2 { background:#FEF3DD; }
+  .alloc-row.t2 .rank, .alloc-row.t2 .priority { color:var(--amber); }
+  .alloc-row.t2 .priority { background:rgba(180,83,9,0.1); }
+  .alloc-row.t3 { background:var(--surface-2); }
+  .alloc-row.t3 .rank { color:var(--ink-3); }
+  .alloc-row.t3 .priority { color:var(--ink-3); background:var(--surface-3); }
 </style>
 </head>
 <body>
 
 <script>
 window.__THESIS_DATA__ = {
-  "dataVersion": 7,
-  "lastUpdate": "2026-06-03",
+  "dataVersion": 8,
+  "lastUpdate": "2026-06-04",
   "dramPrice": 82800,
   "dramPeriod": "5월 1-20일",
   "dramMom": 13.1,
@@ -320,6 +261,34 @@ window.__THESIS_DATA__ = {
     "t3": true
   },
   "notes": [
+    {
+      "date": "2026-06-04",
+      "text": "[시그널 제안] MS Chipflation·Kioxia ADR·Nanya 7개월 연속 최고치 → 전 시그널 더 견고. 풀 홀딩 유지 검토 (실제 토글은 직접)"
+    },
+    {
+      "date": "2026-06-04",
+      "text": "MS \"Chipflation\" 리포트: HBM/DRAM/eSSD 1년 6배+. 1957–2020 5년마다 1/10씩 떨어진 가격 추세 영구 역전. TAM $2,200억→$8,900억 (4배 폭증)"
+    },
+    {
+      "date": "2026-06-04",
+      "text": "MS Allocation Stack: 5단계 물량 배정. 하이퍼스케일러 LTA·선결제로 미래 물량 독점 → 일반 OEM 잔여 풀 + 즉시 원가 충격 (회계 비대칭)"
+    },
+    {
+      "date": "2026-06-04",
+      "text": "MS: 2027 DRAM 웨이퍼 캐파 +30% 확장에도 PC −15%, 스마트폰 −12% 부족. 2028 서버 59% + eSSD 65% = DC 중심 재편"
+    },
+    {
+      "date": "2026-06-04",
+      "text": "MS: 3사(삼성 35%/SK 30%/MU 25%) DRAM 90% · HBM 100% 점유. DRAM 재고 2–3주, NAND 4–5주 역사적 저점. 전자부품 PPI YoY +30%+"
+    },
+    {
+      "date": "2026-06-04",
+      "text": "Kioxia Investor Day (6/2, 메리츠): ADR 상장 + 주주환원 강화. 삼성/SK FCF 50% 정책 재검토 압력. SK ADR 발행 추진 = 선진시장 밸류에이션"
+    },
+    {
+      "date": "2026-06-04",
+      "text": "Nanya 5월 매출 NT$ 27,670M (+730% YoY, +13% MoM) 7개월 연속 최고. 4+5월 > 1Q 전체. 2027 서버 비중 40% 목표 (DDR5 RDIMM + LTA)"
+    },
     {
       "date": "2026-06-03",
       "text": "[디자인] v7 — Thesis 탭 명칭 영문화, 헤더 가격 라벨 추가(5월 잠정/Trass · base scenario), 다크 카드 깊이/타이포 정제"
@@ -371,30 +340,6 @@ window.__THESIS_DATA__ = {
     {
       "date": "2026-06-03",
       "text": "HBM 공급 부족폭 40% / 삼성 평택 P4 증설 앞당겨 2026 HBM 캐파 +50% / 6세대 HBM4 웨이퍼 사용량 5세대 대비 +33%"
-    },
-    {
-      "date": "2026-06-03",
-      "text": "SK하이닉스 청주 M15X 2026 초 양산, 2026 CAPEX 30조원+ 관측 → 증설은 가속되나 '질서있는 증설' 프레임 유지"
-    },
-    {
-      "date": "2026-06-01",
-      "text": "관세청 5월 1-20일 반도체 수출 +202.1% YoY (220억$). 수출물가지수 +40.8% YoY = 28년래 최고"
-    },
-    {
-      "date": "2026-06-01",
-      "text": "TrendForce 2Q26 DRAM 계약가 +58-63% QoQ, NAND +70-75% QoQ 확정 (1Q +90-95% 대비 둔화, NAND 가속)"
-    },
-    {
-      "date": "2026-05-29",
-      "text": "TrendForce TAM $1.28조+(2027)로 대폭 상향"
-    },
-    {
-      "date": "2026-05-29",
-      "text": "DRAMeXchange 2Q PC DRAM +40-50% QoQ 확정, 3Q +8-13%로 상향"
-    },
-    {
-      "date": "2026-05-29",
-      "text": "NAND SLC 5월 +3-16%, MLC 누적 +280%. 레거시 회복 의지 부재"
     }
   ]
 };
@@ -422,7 +367,7 @@ window.__THESIS_DATA__ = {
   <span class="footer-divider" style="display:block;"></span>
   메리츠 · JPM · Citi · MS · GS · BofA · UBS · Mizuho<br/>
   Cleveland · Edgewater · SK증권 · 한투 · 다올<br/>
-  SemiAnalysis · IDC · Reuters · Barrons · TrendForce · OpenAI CFO
+  SemiAnalysis · IDC · Reuters · Barrons · TrendForce · OpenAI CFO · Kioxia
 </p>
 </div>
 
@@ -457,31 +402,32 @@ window.__THESIS_DATA__ = {
 
   function renderThesis(){
     var notesHtml = d.notes.slice(0,5).map(function(n){
-      var isSignal = /\[시그널/.test(n.text) || /\[테스트/.test(n.text);
+      var isSignal = /\[시그널|\[테스트|\[디자인/.test(n.text);
       return '<p class="notes-line'+(isSignal?' signal':'')+'"><span class="notes-date">'+esc(n.date)+'</span>'+esc(n.text)+'</p>';
     }).join("");
     return '<div class="thesisbox">'
       + '<p class="label">Investment Thesis</p>'
+      + '<div class="chipflation-badge"><span class="pulse-dot"></span>Chipflation · MS</div>'
       + '<div class="pricehead-block">'
       +   '<p class="pricehead">DRAM <span class="yellow">$'+dp+'K</span><span class="arrow">→</span><span class="blue">$120–150K</span></p>'
       +   '<p class="pricehead-meta"><span class="src">5월 잠정 수출 단가 · Trass</span><span class="dot-sep"></span>base scenario</p>'
       + '</div>'
       + '<div class="grid2">'
       +   '<div class="cardA">'
-      +     '<p class="ttl">17–18년</p>'
-      +     '<p class="v">$74B</p>'
-      +     '<p class="d">Capex · 메모리 직결 50–60%<br/>≈ $40B · DRAM 고점 $35K/kg</p>'
+      +     '<p class="ttl">2025 TAM</p>'
+      +     '<p class="v">$2,200억</p>'
+      +     '<p class="d">메모리 시장 전체<br/>1957–2020 가격 ▼ 추세</p>'
       +   '</div>'
       +   '<div class="cardB">'
-      +     '<p class="ttl" style="color:rgba(166,181,255,0.65);">25–26년</p>'
-      +     '<p class="v">+80% YoY</p>'
-      +     '<p class="d" style="color:rgba(255,255,255,0.55);">DC Capex · 메모리 직결 25–30%<br/>≈ $2,000B · DRAM $'+dp+'K/kg</p>'
+      +     '<p class="ttl" style="color:rgba(166,181,255,0.65);">2026 TAM</p>'
+      +     '<p class="v">$8,900억</p>'
+      +     '<p class="d" style="color:rgba(255,255,255,0.55);">+4배 폭증 (MS)<br/>가격 하락 추세 영구 역전</p>'
       +   '</div>'
       + '</div>'
       + '<p style="font-size:12.5px;color:rgba(255,255,255,0.7);line-height:1.85;margin:0 0 4px;letter-spacing:-0.005em;">'
-      +   '직결 지출 <span class="yellow">5–6배</span>인데 단가는 <span class="yellow">'+ratio+'배</span>. 갭이 존재한다.<br/>'
-      +   'VR200 메모리 BOM <span class="red">$2.0M</span> · GB300 대비 <span class="red">+435%</span>.<br/>'
-      +   'TAM: 2026 $8,893억 → 2027 <span class="red">$1.28조+</span> (TrendForce)'
+      +   'HBM/DRAM/eSSD 1년간 <span class="yellow">6배+</span> 급등. 단순 사이클 아닌 <span class="yellow">근본적 리셋</span>.<br/>'
+      +   '3사(삼성 35%/SK 30%/MU 25%) DRAM <span class="red">90%</span> · HBM <span class="red">100%</span> 점유.<br/>'
+      +   'DRAM 재고 2–3주 · NAND 4–5주 = 역사적 저점.'
       + '</p>'
       + '<div class="thesis-divider"></div>'
       + '<p style="font-size:12.5px;color:rgba(255,255,255,0.75);line-height:1.75;margin:0;letter-spacing:-0.005em;">'
@@ -497,7 +443,7 @@ window.__THESIS_DATA__ = {
       ["1","Capex 레버리지 + BOM","VR200 메모리 BOM $2.0M (+435%). 직결 지출 5–6배 vs 단가 2.4배 갭."],
       ["2","수급 갭 40%p+","요청 150 중 배정 30–50. HBM 웨이퍼 23% 소비. 2028년 전 증설 불가."],
       ["3","CPU 독립 수요","Vera $200억 = 3,000PB = DRAM 6%. CPU향 DRAM 15–45EB."],
-      ["4","가격 가속도","MS: DRAM 5월분기 +40%, 8월분기 +15% 추가. 4분기 연속 QoQ 플러스."],
+      ["4","가격 가속도","MS: DRAM 5월분기 +40%, 8월분기 +15% 추가. 1년간 HBM/DRAM/eSSD 6배+ 급등."],
       ["5","공급자 행동","SK: 31조 팹 제안 거절. 삼성: 견적 철회 후 10%+ 인상. 레거시 단종."],
       ["6","IB 컨센서스","MS MU TP $520→$1,050. 파텔 2–3배. UBS MU $1,625(P/E 15x). BofA $950."]
     ];
@@ -528,7 +474,7 @@ window.__THESIS_DATA__ = {
       + '<div class="sep"></div>'
       + '<p class="box-eyebrow">$120–150K 근거</p>'
       + rowsHtml
-      + '<div class="infobox"><strong style="color:var(--green);">BofA "구조적으로 높아진 하한선":</strong> 급등 → 고원(plateau). CY28까지 과잉공급 없음.<br/><strong style="color:var(--red);">MS "물리적 공급 제한":</strong> 클린룸 수년 + EUV 글로벌 부족 + HBM 우선순위 → 2~3년 이상 사이클 지속.<br/><strong style="color:var(--red);">2027 HBM4e YoY +70–100% (미즈호).</strong></div>'
+      + '<div class="infobox"><strong style="color:var(--red);">MS "Chipflation":</strong> 1957–2020 5년마다 1/10씩 떨어진 DRAM 가격 추세 <strong>영구 역전</strong>. 전자부품 PPI YoY +30%+. GM 원가 가이던스 +$10–20억.<br/><strong style="color:var(--green);">BofA "구조적 하한선":</strong> 급등 → 고원(plateau). CY28까지 과잉공급 없음.<br/><strong style="color:var(--red);">2027 HBM4e YoY +70–100% (미즈호).</strong></div>'
       + '</div>';
   }
 
@@ -541,7 +487,7 @@ window.__THESIS_DATA__ = {
       {id:"w3", em:"📱", t:"3파동 · 엣지/PC (진행 시작)", c:"#059669", s:"Dell 전통 서버 +92% · CSG 역대 최고",
         d:["Dell: \"공급이 유일한 상한. DRAM이 1순위 병목\"","전통 서버 +92% YoY = 에이전틱 AI가 CPU 서버 견인","CSG 역대 최고 $13B · 4년+ 노후 디바이스 1/3 잔존","NVIDIA PC 프로세서 진출 = AI PC 시장 확대"]},
       {id:"w4", em:"☁️", t:"메가 수요 · OpenAI/하이퍼스케일러", c:"#7C3AED", s:"'2028년 이후도 컴퓨팅 부족' · 멀티칩 전략",
-        d:["OpenAI CFO: \"2026·27 컴퓨팅 사실상 구할 수 없음\"","미시간 셀린 DC 2027말~2028초 컴퓨팅 확보","2030·31·32년 컴퓨팅까지 선제 확보 고민 중","멀티칩(AMD/Cerebras/Broadcom/자체) · 멀티CSP(Oracle/CW/MS/GCP/AWS)","GW당 비용 상승 (전력+메모리 동시) → 메모리 가격 지지력"]}
+        d:["OpenAI CFO: \"2026·27 컴퓨팅 사실상 구할 수 없음\"","미시간 셀린 DC 2027말~2028초 컴퓨팅 확보","2030·31·32년 컴퓨팅까지 선제 확보 고민 중","멀티칩(AMD/Cerebras/Broadcom/자체) · 멀티CSP","GW당 비용 상승 (전력+메모리 동시) → 메모리 가격 지지력"]}
     ];
     var html = '<div class="box">'
       + '<p class="box-title">4파동 동시 폭발</p>'
@@ -559,30 +505,46 @@ window.__THESIS_DATA__ = {
     });
     html += '<div class="nand-card">'
       + '<p class="nl">💾 NAND</p>'
-      + '<p class="nb">Dell: "공급 1순위 = NAND > DRAM > CPU" · MLC 누적 +280% · 니치 수요 전방위 확대 · 레거시 회복 의지 부재</p>'
+      + '<p class="nb">Dell: "공급 1순위 = NAND > DRAM > CPU" · MLC 누적 +280% · 니치 수요 전방위 확대 · Kioxia ADR 상장 계획(KID 6/2) · 레거시 회복 의지 부재</p>'
       + '</div></div>';
     return html;
   }
 
   function renderSupply(){
+    var allocRows = [
+      {tier:'t1', rank:'01', name:'하이퍼스케일러 (MS·GCP·AWS·Meta)', pri:'LTA·선결제'},
+      {tier:'t1', rank:'02', name:'대형 AI 빌더 (OpenAI 등)', pri:'전략 확약'},
+      {tier:'t2', rank:'03', name:'대형 OEM (Apple·Dell·HPE)', pri:'중간 우선'},
+      {tier:'t3', rank:'04', name:'중견 OEM·서버 빌더', pri:'잔여 풀'},
+      {tier:'t3', rank:'05', name:'중소 PC/스마트폰 OEM', pri:'현물 노출'}
+    ];
+    var allocHtml = allocRows.map(function(r){
+      return '<div class="alloc-row '+r.tier+'"><span class="rank">'+r.rank+'</span><span class="name">'+esc(r.name)+'</span><span class="priority">'+esc(r.pri)+'</span></div>';
+    }).join("");
+
     return '<div class="box">'
       + '<p class="box-title">물리적 공급 바닥</p>'
       + '<p class="box-sub">자본 부족이 아니라 EUV·클린룸·전력의 물리적 병목.</p>'
       + '<div class="grid4">'
-      +   '<div class="stat"><p class="l">DC 소비</p><p class="v red mono">70%</p><p class="s">전 세계 메모리 생산</p></div>'
+      +   '<div class="stat"><p class="l">DRAM 재고</p><p class="v red mono">2–3주</p><p class="s">역사적 저점 (MS)</p></div>'
+      +   '<div class="stat"><p class="l">NAND 재고</p><p class="v red mono">4–5주</p><p class="s">역사적 저점 (MS)</p></div>'
       +   '<div class="stat"><p class="l">DRAM 갭</p><p class="v red mono">−4.9%</p><p class="s">2011 이후 최대</p></div>'
-      +   '<div class="stat"><p class="l">NAND 갭</p><p class="v red mono">−4.2%</p><p class="s">2011 이후 최대</p></div>'
       +   '<div class="stat"><p class="l">HBM 갭</p><p class="v red mono">−5.1%</p><p class="s">2011 이후 최대</p></div>'
       + '</div>'
+      + '<div class="sep"></div>'
+      + '<p class="box-eyebrow">Allocation Stack · MS</p>'
+      + '<div class="alloc-wrap">'+allocHtml+'</div>'
+      + '<p style="font-size:11px;color:var(--ink-3);margin:10px 0 0;line-height:1.6;letter-spacing:-0.005em;">하이퍼스케일러 LTA·선결제로 미래 물량 독점 → 일반 OEM은 잔여 현물 풀에서 경쟁. 빅테크는 \'AI CapEx\'로 자본화, 일반 OEM은 즉시 원가 충격.</p>'
       + '<div class="quote" style="margin-top:20px;margin-bottom:0;">'
-      +   '<p class="qlabel">Morgan Stanley</p>'
-      +   '<p class="qbody">"단순 자본 부족 아닌 \'물리적 병목\'. 클린룸 수년·EUV 글로벌 부족·HBM 우선순위로 향후 2~3년 이상 사이클 지속."</p>'
+      +   '<p class="qlabel">Morgan Stanley · Chipflation</p>'
+      +   '<p class="qbody">"단순 자본 부족 아닌 \'물리적 병목\'. 클린룸 수년·EUV 글로벌 부족·HBM 우선순위로 2~3년 이상 사이클 지속. 1957–2020 가격 하락 추세가 영구 역전."</p>'
       + '</div>'
       + '<div class="infobox">'
-      +   '<strong style="color:var(--red);">1티어:</strong> SK "소량조차 없다" · Micron "수요의 50–2/3만 확보" · 삼성 "올해 부족, 내년 더 심화"<br/>'
-      +   '<strong style="color:var(--amber);">2티어:</strong> Nanya "2027말까지 부족" · 윈본드 전량 예약 · <strong style="color:var(--red);">ADATA "2028년까지"</strong><br/><br/>'
-      +   '삼성 P4 → HBM4/4E 할당 → 범용 쇼티지 가속 · Micron 그린필드 필수 (Idaho CY27 중반)<br/>'
-      +   '<span style="color:var(--ink);font-weight:600;">2Q26 확정:</span> DRAM +58–63% · NAND +70–75% (15년 최대)'
+      +   '<strong style="color:var(--red);">3사 점유:</strong> 삼성 35% · SK 30% · MU 25% = DRAM 90% · HBM 100% 통제<br/>'
+      +   '<strong style="color:var(--red);">2027 캐파:</strong> DRAM 웨이퍼 +30% 확장에도 PC −15% / 스마트폰 −12% 부족 (MS)<br/>'
+      +   '<strong style="color:var(--amber);">2028 수요 비중:</strong> 서버 59% + eSSD 65% = DC 중심 재편<br/>'
+      +   '<strong style="color:var(--green);">Nanya 5월(메리츠):</strong> 매출 +730% YoY 7개월 연속 최고. 4+5월 > 1Q 전체. 2027 서버 비중 40% 목표 (LTA)<br/>'
+      +   '<strong style="color:var(--green);">2티어:</strong> Nanya "2027말까지 부족" · 윈본드 전량 예약 · ADATA "2028년까지"'
       + '</div>'
       + '</div>';
   }
@@ -598,12 +560,12 @@ window.__THESIS_DATA__ = {
       + '<p class="box-sub">메모리가 SaaS형 수익 구조로 재평가되는 중.</p>'
       + '<div class="quote">'
       +   '<p class="qlabel">OpenAI · Sarah Friar (CFO)</p>'
-      +   '<p class="qbody">"AI 병목은 수요가 아니라 컴퓨팅 공급이다. 2026년에 컴퓨팅을 더 사고 싶다면 행운을 빈다. 내가 가장 부족하다고 느끼는 부분은 2030·31·32년을 바라보기 시작하는 지점이다."</p>'
+      +   '<p class="qbody">"AI 병목은 수요가 아니라 컴퓨팅 공급이다. 2026년에 컴퓨팅을 더 사고 싶다면 행운을 빈다. 가장 부족하다고 느끼는 부분은 2030·31·32년을 바라보기 시작하는 지점이다."</p>'
       +   '<p class="qattr">— 1,220억$ 자금조달 · 2028년 이후 컴퓨팅 선제 확보</p>'
       + '</div>'
       + '<div class="quote">'
-      +   '<p class="qlabel">IDC</p>'
-      +   '<p class="qbody">"메모리는 전략적 자산으로 재평가된다. 2030년까지의 성장 궤적은 더 이상 소비자 교체 사이클에 좌우되지 않는다."</p>'
+      +   '<p class="qlabel">메리츠 · Kioxia Investor Day (6/2)</p>'
+      +   '<p class="qbody">"키옥시아 ADR 상장 + 주주환원 강화 발표 → 삼성·SK FCF 50% 정책 재검토 압력. SK ADR 발행으로 선진시장 밸류에이션 추진 = 한국시장 저평가 해소 모델."</p>'
       + '</div>'
       + '<div class="pe-wrap">'
       +   '<p class="pe-eyebrow">2027 선행 P/E</p>'
@@ -612,7 +574,7 @@ window.__THESIS_DATA__ = {
       + '</div>'
       + '<p class="box-eyebrow" style="margin-top:22px;">최신 목표주가</p>'
       + '<div class="tp-grid">'
-      +   '<div class="tp-cell"><p class="tpl">MU · Morgan Stanley</p><p class="tpv mono">$1,050</p><p class="tps">↑ $520 · 2x 상향 · Overweight</p></div>'
+      +   '<div class="tp-cell"><p class="tpl">MU · Morgan Stanley</p><p class="tpv mono">$1,050</p><p class="tps">↑ $520 · 2x · Overweight</p></div>'
       +   '<div class="tp-cell"><p class="tpl">SNDK · Morgan Stanley</p><p class="tpv mono">$1,750</p><p class="tps">↑ $1,100 · +59% · Overweight</p></div>'
       +   '<div class="tp-cell"><p class="tpl">MU · UBS</p><p class="tpv mono">$1,625</p><p class="tps">P/E 15x 적용</p></div>'
       +   '<div class="tp-cell"><p class="tpl">SK하이닉스 · JPM</p><p class="tpv mono">₩300만</p><p class="tps">슈퍼을 프리미엄</p></div>'
@@ -620,7 +582,7 @@ window.__THESIS_DATA__ = {
       + '<div class="infobox">'
       +   '<strong style="color:var(--indigo);">UBS LTA:</strong> "2+3" / "3+2" 구조. DDR 20–30% LTA (SK 10%, MU 20%, 삼성 30%). 변동가 −50%에도 MU EPS $100+.<br/><br/>'
       +   'MU EPS: 2027 $155 · 2028 $167 · 2029 $117. FCF $4,000억+.<br/><br/>'
-      +   'SK하이닉스: 31조 팹 투자 제안 거절 = "슈퍼을". OPM 72% + 자체 21조 투자.<br/>'
+      +   'SK하이닉스: 31조 팹 투자 제안 거절 = "슈퍼을". OPM 72% + 자체 21조 투자. ADR 발행 추진 → 선진시장 밸류에이션.<br/>'
       +   '<span style="color:var(--ink);font-weight:600;">젠슨:</span> "공급망 매년 4배 성장해도 10년간 부족. 이제 막 시작."'
       + '</div>'
       + '</div>';
@@ -628,10 +590,10 @@ window.__THESIS_DATA__ = {
 
   function renderCatalyst(){
     var groups = [
-      ["즉각적","var(--red)",["MS MU TP $520→$1,050, SNDK $1,100→$1,750 상향 (6/3)","삼성/SK '역사상 최대 LTA' 공시 전망 (JPM)","2Q DRAM ASP +37% (Citi) · 4Q HBM +30%"]],
-      ["7–8월","var(--indigo)",["MS: DRAM 8월분기 +15% 추가 상승 전망","SK하이닉스 ADR (NYSE) · 20–30% 프리미엄","SOX 편입 가능성 → 패시브 자금 유입"]],
-      ["2026 하반기","var(--amber)",["HBM 계약 갱신 (대규모 LTA 가시화)","OpenAI 등 하이퍼스케일러 2027~28년분 확보 본격화","미시간 셀린 DC 가동 → 추가 수요 가시화"]],
-      ["2027–32","var(--green)",["MU 2027~ 대규모 자사주 매입 (MS)","HBM4e YoY +70–100% (미즈호)","Capex CY27 $1조 → CY30 $3–4조","에이전트 CPU 200–300만개 + PC 3차 파동","OpenAI: 2030·31·32년 컴퓨팅 선제 확보 경쟁"]]
+      ["즉각적","var(--red)",["MS \"Chipflation\" 리포트 (6/4) — TAM $2,200억→$8,900억 (4배)","MS MU TP $520→$1,050, SNDK $1,100→$1,750 상향","Kioxia Investor Day (6/2) — ADR 상장 + 주주환원 강화","Nanya 5월 매출 +730% YoY · 7개월 연속 최고"]],
+      ["7–8월","var(--indigo)",["MS: DRAM 8월분기 +15% 추가 상승 전망","SK하이닉스 ADR (NYSE) — 20–30% 프리미엄","SOX 편입 가능성 → 패시브 자금 유입"]],
+      ["2026 하반기","var(--amber)",["삼성 3개년 환원 정책 (FCF 50%) 발표 — 자사주/배당 비중 결정","HBM 계약 갱신 (대규모 LTA 가시화)","OpenAI 등 하이퍼스케일러 2027~28년분 확보 본격화","미시간 셀린 DC 가동 → 추가 수요 가시화"]],
+      ["2027–32","var(--green)",["SK하이닉스 3개년 환원 결과 발표 (2027말)","MU 2027~ 대규모 자사주 매입 (MS)","HBM4e YoY +70–100% (미즈호)","Capex CY27 $1조 → CY30 $3–4조","OpenAI: 2030·31·32년 컴퓨팅 선제 확보 경쟁"]]
     ];
     var html = '<div class="box">'
       + '<p class="box-title">실적 · LTA · ADR</p>'
