@@ -434,6 +434,13 @@ window.__THESIS_DATA__ = {
       +   '<span style="color:#FFF;font-weight:700;">'+esc(d.position)+'</span> · P/B → P/E 전환 <span class="green">진행 중</span><br/>'
       +   (allClear ? '<span class="green">전 시그널 클리어</span>' : '<span class="red">TIER 1 경고 '+t1Count+'개</span>')
       + '</p>'
+      + '<div class="thesis-divider"></div>'
+      + '<div style="background:rgba(255,255,255,0.03);border:1px solid rgba(240,183,47,0.22);border-radius:16px;padding:18px 18px;">'
+      +   '<p style="font-size:9.5px;font-weight:700;color:var(--gold);letter-spacing:0.14em;text-transform:uppercase;margin:0 0 12px;">$120–150K 정당화 vs. Ceiling 워치</p>'
+      +   '<p style="font-size:11.5px;color:rgba(255,255,255,0.78);line-height:1.8;margin:0 0 11px;letter-spacing:-0.005em;"><span class="yellow" style="font-weight:700;">정당화 —</span> 17–18년 대비 AI capex <span class="yellow">3–4배</span>($3,000–4,000억+) + AI 서버 BOM 내 메모리 비중·절대금액 급증 → 단가가 높아도 시스템이 흡수 가능(<span class="yellow">affordability</span>). 단기 인상 둔화로 이 논거가 깨지진 않음.</p>'
+      +   '<p style="font-size:11.5px;color:rgba(255,255,255,0.78);line-height:1.8;margin:0 0 11px;letter-spacing:-0.005em;"><span class="orange" style="font-weight:700;">단, ceiling 근접 —</span> 계약가 상단이 스팟(RDIMM <span class="mono">~$1,300 추정</span>)에 붙음 = <span class="orange">catch-up 종료</span>. 이후 상승은 스팟 추가 타이트닝에 의존 → 직선이 아니라 완만한 기울기. <span class="blue">HBM ASP 캐치업(\'27 +50%)·eSSD·서버 믹스 + 2027 캐파 제약</span>으로 blended ASP가 끌어올려지는 경로.</p>'
+      +   '<p style="font-size:11.5px;color:rgba(255,255,255,0.78);line-height:1.8;margin:0;letter-spacing:-0.005em;"><span class="red" style="font-weight:700;">관건·리스크 —</span> 고단가($1,300대)에서의 <span style="color:#FFF;font-weight:600;">출하량(수요 탄력성)</span>이 핵심. 최대 리스크는 가격 하락이 아니라 <span class="red">인상 속도 둔화 → de-rating</span>(펀더 멀쩡해도 멀티플 선하락). <span style="color:#FFF;font-weight:600;">3Q26 협상(7–8월)이 첫 분수령.</span></p>'
+      + '</div>'
       + (d.notes.length>0 ? '<div class="notes-block"><p class="notes-label">Recent Updates</p>'+notesHtml+'</div>' : '')
       + '</div>';
   }
