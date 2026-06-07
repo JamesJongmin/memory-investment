@@ -618,33 +618,49 @@ function initDashboard(){
   }
 
   function renderSell(){
-    var sigs = [
-      {em:"📦", t:"DRAM 재고 8주+", now:"2–3주", ok:d.signals.s1},
-      {em:"📉", t:"계약가 QoQ 하락", now:"+20–63%", ok:d.signals.s2},
-      {em:"🏗️", t:"3사 Capex 공격적", now:"질서있는 증설", ok:d.signals.s3}
+    var SM = d.signalMeta || {};
+    function meta(k, defT, defN){ var x = SM[k] || {}; return { t: x.name || defT, th: x.threshold || "", now: x.now || defN }; }
+    var t1s = [
+      {em:"📦", k:"s1", ok:d.signals.s1, dt:"DRAM 재고 8주+", dn:"2–3주"},
+      {em:"📉", k:"s2", ok:d.signals.s2, dt:"계약가 QoQ 하락", dn:"+58~63%"},
+      {em:"🏗️", k:"s3", ok:d.signals.s3, dt:"3사 Capex 공격 전환", dn:"질서있는 증설"}
     ];
-    var html = '<div class="box">'
-      + '<p class="box-title">매도 시그널</p>'
-      + '<p class="box-sub">기본 홀딩. <strong style="color:var(--red);">TIER 1 × 2개+</strong> 시 비중 축소.</p>'
-      + '<div style="margin-bottom:12px;"><span class="badge" style="background:var(--red);">TIER 1</span></div>';
-    sigs.forEach(function(s){
-      html += '<div class="sig-row"><div class="sig-flex">'
+    var t2s = [
+      {em:"💰", k:"t1", ok:d.signals.t1, dt:"빅4 Capex 하향", dn:"상향 지속"},
+      {em:"🇨🇳", k:"t2", ok:d.signals.t2, dt:"CXMT 대량 출하", dn:"캐파 정체"},
+      {em:"📊", k:"t3", ok:d.signals.t3, dt:"멀티플 de-rating", dn:"재평가 진행"}
+    ];
+    function sigRow(s){
+      var mm = meta(s.k, s.dt, s.dn);
+      return '<div class="sig-row"><div class="sig-flex">'
         + '<div class="sig-emoji">'+s.em+'</div>'
-        + '<div style="flex:1;"><p class="sig-t">'+esc(s.t)+'</p>'
-        + '<p class="'+(s.ok?'sig-now-ok':'sig-now-warn')+'">'+(s.ok ? '현재 '+esc(s.now) : '경고 발생')+'</p></div>'
+        + '<div style="flex:1;"><p class="sig-t">'+esc(mm.t)+'</p>'
+        + (mm.th ? '<p style="font-size:10px;color:var(--ink-4);margin:3px 0 0;letter-spacing:-0.005em;">기준: '+esc(mm.th)+'</p>' : '')
+        + '<p class="'+(s.ok?'sig-now-ok':'sig-now-warn')+'">'+(s.ok ? '현재 '+esc(mm.now) : '경고 — '+esc(mm.now))+'</p></div>'
         + '<span class="sig-pill '+(s.ok?'ok':'warn')+'">'+(s.ok?'OK':'WARN')+'</span>'
         + '</div></div>';
-    });
+    }
+    var html = '<div class="box">'
+      + '<p class="box-title">매도 시그널</p>'
+      + '<p class="box-sub">기본 홀딩. <strong style="color:var(--red);">TIER 1 × 2개+</strong> 시 비중 축소. 판정은 일일 작업이 측정 데이터 기준으로 자동 갱신.</p>'
+      + '<div style="margin-bottom:12px;"><span class="badge" style="background:var(--red);">TIER 1</span></div>';
+    t1s.forEach(function(s){ html += sigRow(s); });
     html += '<div style="margin:20px 0 12px;"><span class="badge" style="background:var(--amber);">TIER 2</span></div>';
-    var t2 = [["💰","빅4 Capex 하향",d.signals.t1],["🇨🇳","CXMT 대량 출하",d.signals.t2],["⚖️","AI 규제/시위",d.signals.t3]];
-    t2.forEach(function(x){
-      html += '<div class="tier2-row"><div class="sig-emoji">'+x[0]+'</div>'
-        + '<p style="font-size:13px;font-weight:600;margin:0;flex:1;color:var(--ink);letter-spacing:-0.008em;">'+esc(x[1])+'</p>'
-        + '<span class="sig-pill '+(x[2]?'ok':'warn')+'">'+(x[2]?'OK':'WARN')+'</span></div>';
-    });
+    t2s.forEach(function(s){ html += sigRow(s); });
+    var ycs = d.yellowCards || [];
+    var yOn = ycs.filter(function(y){return y.on;}).length;
+    if (ycs.length) {
+      html += '<div style="margin:20px 0 12px;"><span class="badge" style="background:var(--gold);color:#08090B;">옐로카드 · 선행 경고</span></div>';
+      ycs.forEach(function(y){
+        html += '<div class="tier2-row"><div class="sig-emoji">'+(y.on?'🟡':'⚪')+'</div>'
+          + '<div style="flex:1;"><p style="font-size:12.5px;font-weight:600;margin:0;color:var(--ink);letter-spacing:-0.008em;">'+esc(y.name)+'</p>'
+          + '<p style="font-size:10.5px;color:var(--ink-3);margin:3px 0 0;line-height:1.5;">'+esc(y.now)+'</p></div>'
+          + '<span class="sig-pill '+(y.on?'warn':'ok')+'">'+(y.on?'관찰':'미발동')+'</span></div>';
+      });
+    }
     html += '<div class="verdict '+(allClear?'clear':'warn')+'">'
       + '<p style="font-size:14px;font-weight:700;margin:0;color:'+(allClear?'var(--green)':'var(--red)')+';letter-spacing:-0.012em;">'+(allClear?'✓ 전 시그널 클리어':'⚠ TIER 1 경고 '+t1Count+'개')+'</p>'
-      + '<p style="font-size:11.5px;color:var(--ink-2);margin:5px 0 0;letter-spacing:-0.005em;">'+(allClear?'풀 홀딩 유지':(t1Count>=2?'30–50% 비중 축소 검토':'추가 매수 중단'))+'</p>'
+      + '<p style="font-size:11.5px;color:var(--ink-2);margin:5px 0 0;letter-spacing:-0.005em;">'+(allClear?'풀 홀딩 유지':(t1Count>=2?'30–50% 비중 축소 검토':'추가 매수 중단'))+(yOn?' · 옐로카드 '+yOn+'개 관찰 중':'')+'</p>'
       + '</div>';
     html += '</div>';
     return html;
