@@ -346,6 +346,7 @@ window.__THESIS_DATA__ = {
 </script>
 
 <div class="wrap">
+<div class="last-updated" style="text-align:center;padding:14px 20px 0;font-size:10.5px;font-weight:600;letter-spacing:0.06em;color:var(--ink-4);">Last updated on <span class="mono" id="lastup"></span></div>
 <div class="live">
   <span class="dot"></span>
   <span>Live</span><span class="sep"></span>
@@ -354,8 +355,8 @@ window.__THESIS_DATA__ = {
 </div>
 <div class="header">
   <div class="meta-row">
-    <span class="pill">📊 <span>Jongmin Baek</span></span>
-    <span class="pill">Position: <span class="v" id="posp"></span></span>
+    <span class="pill"><span>Published by Jongmin Baek</span></span>
+    <span class="pill" id="sigpill">Overall Signal: <span class="sig-dot" id="sigdot" style="display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 2px;"></span> <span class="v" id="posp"></span></span>
   </div>
   <p class="eyebrow">Memory Semiconductor</p>
   <h1>메모리 반도체<br/><span class="accent">투자 포인트</span></h1>
@@ -384,7 +385,19 @@ function initDashboard(){
 
   document.getElementById("ver").textContent = d.dataVersion;
   document.getElementById("updt").textContent = d.lastUpdate;
-  document.getElementById("posp").textContent = d.position;
+  document.getElementById("lastup").textContent = d.updatedAt || d.lastUpdate;
+  var warnCount = Object.values(d.signals).filter(function(v){return !v;}).length;
+  var yOnCount = (d.yellowCards||[]).filter(function(y){return y.on;}).length;
+  var sigColor, sigLabel;
+  if (t1Count>=2 || warnCount>=3) { sigColor='var(--red)'; sigLabel='RED'; }
+  else if (warnCount>=1 || yOnCount>=2) { sigColor='var(--gold)'; sigLabel='YELLOW'; }
+  else { sigColor='var(--green)'; sigLabel='GREEN'; }
+  document.getElementById("sigdot").style.background = sigColor;
+  document.getElementById("sigdot").style.boxShadow = '0 0 0 3px ' + (sigColor==='var(--green)'?'rgba(5,150,105,0.18)':sigColor==='var(--gold)'?'rgba(240,183,47,0.20)':'rgba(220,38,38,0.18)');
+  var posp = document.getElementById("posp");
+  posp.textContent = sigLabel;
+  posp.style.color = sigColor;
+  posp.style.fontWeight = '800';
 
   var tabs = [
     {id:"thesis", label:"Thesis"},
@@ -410,7 +423,7 @@ function initDashboard(){
       + '<div class="chipflation-badge"><span class="pulse-dot"></span>Chipflation · MS</div>'
       + '<div class="pricehead-block">'
       +   '<p class="pricehead">DRAM <span class="yellow">$'+dp+'K</span><span class="arrow">→</span><span class="blue">$120–150K</span></p>'
-      +   '<p class="pricehead-meta"><span class="src">5월 잠정 수출 단가 · Trass</span><span class="dot-sep"></span>base scenario</p>'
+      +   '<p class="pricehead-meta"><span class="src">DRAM 수출단가 $/kg</span><span class="dot-sep"></span>현재 5월 잠정 $'+dp+'K <span style="color:rgba(255,255,255,0.32);">→</span> <span class="src">$120–150K = 2026 연말(YE) base 시나리오 프로젝션</span></p>'
       + '</div>'
       + '<div class="grid2">'
       +   '<div class="cardA">'
@@ -581,9 +594,11 @@ function initDashboard(){
       + '</div>'
       + '<p class="box-eyebrow" style="margin-top:22px;">최신 목표주가</p>'
       + '<div class="tp-grid">'
-      +   '<div class="tp-cell"><p class="tpl">MU · Morgan Stanley</p><p class="tpv mono">$1,050</p><p class="tps">↑ $520 · 2x · Overweight</p></div>'
-      +   '<div class="tp-cell"><p class="tpl">SNDK · Morgan Stanley</p><p class="tpv mono">$1,750</p><p class="tps">↑ $1,100 · +59% · Overweight</p></div>'
+      +   '<div class="tp-cell"><p class="tpl">삼성전자 · CLSA</p><p class="tpv mono">₩54만</p><p class="tps">↑ ₩40만 · +35%</p></div>'
+      +   '<div class="tp-cell"><p class="tpl">SK하이닉스 · CLSA</p><p class="tpv mono">₩370만</p><p class="tps">↑ ₩252만 · +47%</p></div>'
+      +   '<div class="tp-cell"><p class="tpl">MU · CLSA</p><p class="tpv mono">$1,320</p><p class="tps">↑ $970 · +36%</p></div>'
       +   '<div class="tp-cell"><p class="tpl">MU · UBS</p><p class="tpv mono">$1,625</p><p class="tps">P/E 15x 적용</p></div>'
+      +   '<div class="tp-cell"><p class="tpl">MU · Morgan Stanley</p><p class="tpv mono">$1,050</p><p class="tps">↑ $520 · 2x · OW</p></div>'
       +   '<div class="tp-cell"><p class="tpl">SK하이닉스 · JPM</p><p class="tpv mono">₩300만</p><p class="tps">슈퍼을 프리미엄</p></div>'
       + '</div>'
       + '<div class="infobox">'
