@@ -519,7 +519,7 @@ function initDashboard(){
       + '<div class="chipflation-badge"><span class="pulse-dot"></span>Chipflation · MS</div>'
       + '<div class="pricehead-block">'
       +   '<p class="pricehead">DRAM <span class="yellow">$'+dp+'K</span><span class="arrow">→</span><span class="blue">$120–150K</span></p>'
-      +   '<p class="pricehead-meta"><span class="src">DRAM 수출단가 $/kg</span><span class="dot-sep"></span>4월 $66K · 5월 $82.8K · 6월(1-10 잠정) $'+dp+'K <span style="color:rgba(255,255,255,0.32);">→</span> <span class="src">$120–150K = 2026 연말(YE) base 시나리오</span></p>'
+      +   '<p class="pricehead-meta"><span class="src">DRAM 수출단가 $/kg</span><span class="dot-sep"></span>4월 $66K · 5월 $77.6K · 6월(1-10 잠정) $'+dp+'K <span style="color:rgba(255,255,255,0.32);">→</span> <span class="src">$120–150K = 2026 연말(YE) base 시나리오</span></p>'
       + '</div>'
       + '<div class="grid2">'
       +   '<div class="cardA">'
@@ -584,14 +584,15 @@ function initDashboard(){
       + '<p class="box-eyebrow">DRAM 단독 ($/kg)</p>'
       + bar("\'18 고점","$35K",16,"#D1D1D6",true)
       + bar("4월 확정","$66K",30,"#9A9CA3",true)
-      + bar("5월 확정","$82.8K",38,"#6B6D74",true)
+      + bar("5월 확정","$77.6K",35,"#6B6D74",true)
       + bar(d.dramPeriod,"$"+dp+"K",pricePct,"var(--ink)",false)
+      + bar("6월 확정 추정","~$73K",33,"#C99A2E",false)
       + bar("기본","$120–150K",61,"var(--indigo)",false)
       + bar("강세","$150–220K",84,"var(--red)",false)
       + '<div class="sep"></div>'
       + '<p class="box-eyebrow">$120–150K 근거</p>'
       + rowsHtml
-      + '<div class="infobox"><strong style="color:var(--red);">MS "Chipflation":</strong> 1957–2020 5년마다 1/10씩 떨어진 DRAM 가격 추세 <strong>영구 역전</strong>. 전자부품 PPI YoY +30%+. GM 원가 가이던스 +$10–20억.<br/><strong style="color:var(--green);">BofA "구조적 하한선":</strong> 급등 → 고원(plateau). CY28까지 과잉공급 없음.<br/><strong style="color:var(--red);">2027 HBM4e YoY +70–100% (미즈호).</strong><br/><strong style="color:var(--amber);">AMD(맥아피, 6/11):</strong> DDR5 고가, 수급 정상화는 약 2년 뒤 <strong>2028 상반기</strong> — 삼성·MU 증설·CXMT DDR5 공격 확장에도 단기 하락 어려움(이번 상승주기는 회복이 더 길다).</div>'
+      + '<div class="infobox"><strong style="color:var(--red);">MS "Chipflation":</strong> 1957–2020 5년마다 1/10씩 떨어진 DRAM 가격 추세 <strong>영구 역전</strong>. 전자부품 PPI YoY +30%+. GM 원가 가이던스 +$10–20억.<br/><strong style="color:var(--green);">BofA "구조적 하한선":</strong> 급등 → 고원(plateau). CY28까지 과잉공급 없음.<br/><strong style="color:var(--red);">2027 HBM4e YoY +70–100% (미즈호).</strong><br/><strong style="color:var(--amber);">AMD(맥아피, 6/11):</strong> DDR5 고가, 수급 정상화는 약 2년 뒤 <strong>2028 상반기</strong> — 삼성·MU 증설·CXMT DDR5 공격 확장에도 단기 하락 어려움(이번 상승주기는 회복이 더 길다).<br/><strong style="color:var(--blue);">월내 $/kg 패턴·6월 추정:</strong> TRASS 단가=금액÷중량 가중평균 — HBM·고용량 서버 DDR5가 월초(1-10)에 집중+소표본으로 1-10이 최고, 월 진행되며 범용·모듈 희석으로 하락(가격하락 아닌 믹스/타이밍). 5월 1-10 ~$89.5K→full $77.6K(-13.4%). 동일 패턴이면 <strong>6월 full ≈ $72~74K</strong>로 1-10일 $83.4K에서 되돌림.</div>'
       + '</div>';
   }
 
