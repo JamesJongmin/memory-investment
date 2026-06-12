@@ -519,7 +519,7 @@ function initDashboard(){
       + '<div class="chipflation-badge"><span class="pulse-dot"></span>Chipflation · MS</div>'
       + '<div class="pricehead-block">'
       +   '<p class="pricehead">DRAM <span class="yellow">$'+dp+'K</span><span class="arrow">→</span><span class="blue">$120–150K</span></p>'
-      +   '<p class="pricehead-meta"><span class="src">DRAM 수출단가 $/kg</span><span class="dot-sep"></span>현재 5월 잠정 $'+dp+'K <span style="color:rgba(255,255,255,0.32);">→</span> <span class="src">$120–150K = 2026 연말(YE) base 시나리오 프로젝션</span></p>'
+      +   '<p class="pricehead-meta"><span class="src">DRAM 수출단가 $/kg</span><span class="dot-sep"></span>4월 $66K · 5월 $82.8K · 6월(1-10 잠정) $'+dp+'K <span style="color:rgba(255,255,255,0.32);">→</span> <span class="src">$120–150K = 2026 연말(YE) base 시나리오</span></p>'
       + '</div>'
       + '<div class="grid2">'
       +   '<div class="cardA">'
@@ -546,7 +546,7 @@ function initDashboard(){
       + '<div class="thesis-divider"></div>'
       + '<div style="background:rgba(255,255,255,0.03);border:1px solid rgba(240,183,47,0.22);border-radius:16px;padding:18px 18px;">'
       +   '<p style="font-size:9.5px;font-weight:700;color:var(--gold);letter-spacing:0.14em;text-transform:uppercase;margin:0 0 12px;">$120–150K 정당화 vs. Ceiling 워치</p>'
-      +   '<p style="font-size:11.5px;color:rgba(255,255,255,0.78);line-height:1.8;margin:0 0 11px;letter-spacing:-0.005em;"><span class="yellow" style="font-weight:700;">정당화 —</span> 17–18년 대비 AI capex <span class="yellow">3–4배</span>($3,000–4,000억+) + AI 서버 BOM 내 메모리 비중·절대금액 급증 → 단가가 높아도 시스템이 흡수 가능(<span class="yellow">affordability</span>). 단기 인상 둔화로 이 논거가 깨지진 않음.</p>'
+      +   '<p style="font-size:11.5px;color:rgba(255,255,255,0.78);line-height:1.8;margin:0 0 11px;letter-spacing:-0.005em;"><span class="yellow" style="font-weight:700;">정당화 —</span> 17–18년 대비 AI capex <span class="yellow">3–4배</span>($3,000–4,000억+) + AI 서버 BOM 내 메모리 비중·절대금액 급증 → 단가가 높아도 시스템이 흡수 가능(<span class="yellow">affordability</span>). 단기 인상 둔화로 이 논거가 깨지진 않음. <span class="green" style="font-weight:700;">AMD(맥아피): 수급 정상화 2028 상반기 — 2027까지 타이트 지속.</span> <span class="blue" style="font-weight:700;">BofA: Agentic AI로 서버 CPU TAM 2030 $170B+(+37% CAGR·~5배), CPU:GPU 1:1 수렴 → 서버 DRAM·SOCAMM 동반 폭증.</span></p>'
       +   '<p style="font-size:11.5px;color:rgba(255,255,255,0.78);line-height:1.8;margin:0 0 11px;letter-spacing:-0.005em;"><span class="orange" style="font-weight:700;">단, ceiling 근접 —</span> 계약가 상단이 스팟(RDIMM <span class="mono">~$1,300 추정</span>)에 붙음 = <span class="orange">catch-up 종료</span>. 이후 상승은 스팟 추가 타이트닝에 의존 → 직선이 아니라 완만한 기울기. <span class="blue">HBM ASP 캐치업(\'27 +50%)·eSSD·서버 믹스 + 2027 캐파 제약</span>으로 blended ASP가 끌어올려지는 경로.</p>'
       +   '<p style="font-size:11.5px;color:rgba(255,255,255,0.78);line-height:1.8;margin:0;letter-spacing:-0.005em;"><span class="red" style="font-weight:700;">관건·리스크 —</span> 고단가($1,300대)에서의 <span style="color:#FFF;font-weight:600;">출하량(수요 탄력성)</span>이 핵심. 최대 리스크는 가격 하락이 아니라 <span class="red">인상 속도 둔화 → de-rating</span>(펀더 멀쩡해도 멀티플 선하락). <span style="color:#FFF;font-weight:600;">3Q26 협상(7–8월)이 첫 분수령.</span></p>'
       + '</div>'
@@ -584,13 +584,14 @@ function initDashboard(){
       + '<p class="box-eyebrow">DRAM 단독 ($/kg)</p>'
       + bar("\'18 고점","$35K",16,"#D1D1D6",true)
       + bar("4월 확정","$66K",30,"#9A9CA3",true)
+      + bar("5월 확정","$82.8K",38,"#6B6D74",true)
       + bar(d.dramPeriod,"$"+dp+"K",pricePct,"var(--ink)",false)
       + bar("기본","$120–150K",61,"var(--indigo)",false)
       + bar("강세","$150–220K",84,"var(--red)",false)
       + '<div class="sep"></div>'
       + '<p class="box-eyebrow">$120–150K 근거</p>'
       + rowsHtml
-      + '<div class="infobox"><strong style="color:var(--red);">MS "Chipflation":</strong> 1957–2020 5년마다 1/10씩 떨어진 DRAM 가격 추세 <strong>영구 역전</strong>. 전자부품 PPI YoY +30%+. GM 원가 가이던스 +$10–20억.<br/><strong style="color:var(--green);">BofA "구조적 하한선":</strong> 급등 → 고원(plateau). CY28까지 과잉공급 없음.<br/><strong style="color:var(--red);">2027 HBM4e YoY +70–100% (미즈호).</strong></div>'
+      + '<div class="infobox"><strong style="color:var(--red);">MS "Chipflation":</strong> 1957–2020 5년마다 1/10씩 떨어진 DRAM 가격 추세 <strong>영구 역전</strong>. 전자부품 PPI YoY +30%+. GM 원가 가이던스 +$10–20억.<br/><strong style="color:var(--green);">BofA "구조적 하한선":</strong> 급등 → 고원(plateau). CY28까지 과잉공급 없음.<br/><strong style="color:var(--red);">2027 HBM4e YoY +70–100% (미즈호).</strong><br/><strong style="color:var(--amber);">AMD(맥아피, 6/11):</strong> DDR5 고가, 수급 정상화는 약 2년 뒤 <strong>2028 상반기</strong> — 삼성·MU 증설·CXMT DDR5 공격 확장에도 단기 하락 어려움(이번 상승주기는 회복이 더 길다).</div>'
       + '</div>';
   }
 
@@ -598,8 +599,8 @@ function initDashboard(){
     var waves = [
       {id:"w1", em:"🔥", t:"1파동 · GPU/HBM", c:"#DC2626", s:"HBM 공급 30–50% 부족 · 2027 HBM4e +70–100%",
         d:["HBM TAM $350B → $1,680B (CAGR +37%) · 웨이퍼 23% 소비","2027 HBM4e 가격 YoY +70–100% (미즈호)","추가 물량에 20–40% 프리미엄 (Edgewater)","HBM4E 16Hi → 12Hi 후퇴 (수율). CoWoS 수요 850K(27)"]},
-      {id:"w2", em:"⚡", t:"2파동 · CPU/DDR5", c:"#2563EB", s:"Vera $200억 = DRAM 6% · 랙당 SoCAMM 2,048개",
-        d:["Vera 독립 랙 2,048 SoCAMM (NVL72의 7.1배)","FY27 $200억 = 400만 CPU = 3,000PB = 글로벌 DRAM 6%","VR Pod 9,084PB + Vera 6,144PB = 스마트폰 13억대","CPU향 DRAM 추가 15–45EB = 2027 공급의 26–77% (MS)"]},
+      {id:"w2", em:"⚡", t:"2파동 · CPU/DDR5 (BofA: Agentic CPU 5배)", c:"#2563EB", s:"서버 CPU TAM 2030 $170B+(+37% CAGR) · CPU:GPU 1:1 수렴",
+        d:["BofA(아리아): Agentic AI가 오케스트레이션·의사결정(지연민감·순차·I/O)을 CPU로 이전 → 서버 CPU TAM 2030 $170B+(기존 $125B)·CAGR +37%·~5배, AI 서버 CPU가 매출 80%+","CY30 CPU TAM 분화: 전통/IaaS $30B + AI 클러스터 헤드 $70B + AI 에이전트 독립 노드 $70B","Content/GW 급증: Blackwell $40B → Rubin/Rubin Ultra $60–80B → Feynman $100B","NVDA Vera CPU 독립 액냉 랙(최대 256 Vera·Olympus 88코어·NVLink C2C) 2H26 · AMD Venice 256코어","Vera 독립 랙 2,048 SoCAMM(NVL72의 7.1배) · CPU향 DRAM +15–45EB = 2027 공급의 26–77%(MS)"]},
       {id:"w3", em:"📱", t:"3파동 · 엣지/PC (진행 시작)", c:"#059669", s:"Dell 전통 서버 +92% · CSG 역대 최고",
         d:["Dell: \"공급이 유일한 상한. DRAM이 1순위 병목\"","전통 서버 +92% YoY = 에이전틱 AI가 CPU 서버 견인","CSG 역대 최고 $13B · 4년+ 노후 디바이스 1/3 잔존","NVIDIA PC 프로세서 진출 = AI PC 시장 확대"]},
       {id:"w4", em:"☁️", t:"메가 수요 · OpenAI/하이퍼스케일러", c:"#7C3AED", s:"'2028년 이후도 컴퓨팅 부족' · 멀티칩 전략",
@@ -660,7 +661,8 @@ function initDashboard(){
       +   '<strong style="color:var(--red);">2027 캐파:</strong> DRAM 웨이퍼 +30% 확장에도 PC −15% / 스마트폰 −12% 부족 (MS)<br/>'
       +   '<strong style="color:var(--amber);">2028 수요 비중:</strong> 서버 59% + eSSD 65% = DC 중심 재편<br/>'
       +   '<strong style="color:var(--green);">Nanya 5월(메리츠):</strong> 매출 +730% YoY 7개월 연속 최고. 4+5월 > 1Q 전체. 2027 서버 비중 40% 목표 (LTA)<br/>'
-      +   '<strong style="color:var(--green);">2티어:</strong> Nanya "2027말까지 부족" · 윈본드 전량 예약 · ADATA "2028년까지"'
+      +   '<strong style="color:var(--green);">2티어:</strong> Nanya "2027말까지 부족" · 윈본드 전량 예약 · ADATA "2028년까지"<br/>'
+      +   '<strong style="color:var(--amber);">AMD(맥아피):</strong> 삼성·MU 대규모 증설·CXMT DDR5 공격 확장에도 <strong>수급 정상화는 2028 상반기</strong> — 2027까지 공급 타이트, 회복은 과거 사이클보다 길다(CXMT는 t2 중장기 관찰)'
       + '</div>'
       + '</div>';
   }
@@ -701,7 +703,8 @@ function initDashboard(){
       +   '<strong style="color:var(--indigo);">UBS LTA:</strong> "2+3" / "3+2" 구조. DDR 20–30% LTA (SK 10%, MU 20%, 삼성 30%). 변동가 −50%에도 MU EPS $100+.<br/><br/>'
       +   'MU EPS: 2027 $155 · 2028 $167 · 2029 $117. FCF $4,000억+.<br/><br/>'
       +   'SK하이닉스: 31조 팹 투자 제안 거절 = "슈퍼을". OPM 72% + 자체 21조 투자. ADR 발행 추진 → 선진시장 밸류에이션.<br/>'
-      +   '<span style="color:var(--ink);font-weight:600;">젠슨:</span> "공급망 매년 4배 성장해도 10년간 부족. 이제 막 시작."'
+      +   '<span style="color:var(--ink);font-weight:600;">젠슨:</span> "공급망 매년 4배 성장해도 10년간 부족. 이제 막 시작."<br/><br/>'
+      +   '<strong style="color:var(--indigo);">BofA(아리아):</strong> 서버 CPU TAM 2030 $170B+(+37% CAGR), CPU:GPU 1:1 수렴 → AMD TP $560·Intel Buy 상향 $135·NVDA $350·ARM $335. 서버 DRAM/SOCAMM 동반 수요 구조 = 메모리 리레이팅 보강.'
       + '</div>'
       + '</div>';
   }
@@ -709,7 +712,7 @@ function initDashboard(){
   function renderCatalyst(){
     var groups = [
       ["즉각적","var(--red)",["MS \"Chipflation\" 리포트 (6/4) — TAM $2,200억→$8,900억 (4배)","MS MU TP $520→$1,050, SNDK $1,100→$1,750 상향","Kioxia Investor Day (6/2) — ADR 상장 + 주주환원 강화","Nanya 5월 매출 +730% YoY · 7개월 연속 최고"]],
-      ["7–8월","var(--indigo)",["MS: DRAM 8월분기 +15% 추가 상승 전망","SK하이닉스 ADR (NYSE) — 20–30% 프리미엄","SOX 편입 가능성 → 패시브 자금 유입"]],
+      ["7–8월","var(--indigo)",["BofA: Agentic AI 서버 CPU TAM 2030 $170B+(+37% CAGR) — AMD $560·Intel Buy 상향·NVDA $350","MS: DRAM 8월분기 +15% 추가 상승 전망","NVDA Vera CPU 독립 랙·AMD Venice 256코어 2H26 → 서버 DDR5 수요","SK하이닉스 ADR (NYSE) — 20–30% 프리미엄","SOX 편입 가능성 → 패시브 자금 유입"]],
       ["2026 하반기","var(--amber)",["삼성 3개년 환원 정책 (FCF 50%) 발표 — 자사주/배당 비중 결정","HBM 계약 갱신 (대규모 LTA 가시화)","OpenAI 등 하이퍼스케일러 2027~28년분 확보 본격화","미시간 셀린 DC 가동 → 추가 수요 가시화"]],
       ["2027–32","var(--green)",["SK하이닉스 3개년 환원 결과 발표 (2027말)","MU 2027~ 대규모 자사주 매입 (MS)","HBM4e YoY +70–100% (미즈호)","Capex CY27 $1조 → CY30 $3–4조","OpenAI: 2030·31·32년 컴퓨팅 선제 확보 경쟁"]]
     ];
