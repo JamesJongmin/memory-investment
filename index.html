@@ -241,203 +241,7 @@
 <body>
 
 <script>
-window.__THESIS_DATA__ = {
-  "dataVersion": 23,
-  "lastUpdate": "2026-06-11",
-  "dramPrice": 82800,
-  "dramPeriod": "5월 1-31일",
-  "dramMom": 13.1,
-  "dramYoy": 434,
-  "flashPrice": 54700,
-  "flashMom": 23.3,
-  "flashYoy": 280,
-  "position": "풀 홀딩",
-  "signals": {
-    "s1": true,
-    "s2": true,
-    "s3": true,
-    "t1": true,
-    "t2": true,
-    "t3": true
-  },
-  "signalMeta": {
-    "s1": {
-      "name": "DRAM 재고 8주+",
-      "threshold": "공급사 DRAM 재고 주수 ≥ 8주 (TrendForce/IB, 분기)",
-      "now": "DRAM 2–3주 · NAND 3–4주 (정상 10–12주의 절반 이하, 역사적 저점 지속) — 8주+ 임계 미달"
-    },
-    "s2": {
-      "name": "계약가 QoQ 하락",
-      "threshold": "TrendForce conv DRAM 계약가 QoQ < 0%",
-      "now": "1Q26 +93~98% · 2Q26E +58~63% · MS: 3Q26 DRAM +20~30% 인상 지속 전망(컨센 15% 상회) · MS '건강한 조정'론 — 하락 신호 전무"
-    },
-    "s3": {
-      "name": "3사 Capex 공격 전환",
-      "threshold": "WFE 장비투자 가속 + 비트공급 가이던스 +25%↑ (셸 투자 제외)",
-      "now": "비트공급 +25% 가이던스 부재 · NVIDIA SOCAMM 축소도 수요둔화 아닌 LPDRAM 공급제약(2027 배정 ~60%만 충족, TrendForce) — 공급규율 유지, 임계 미달"
-    },
-    "t1": {
-      "name": "빅4 Capex 하향",
-      "threshold": "MSFT·GOOGL·AMZN·META 중 2개사+ 가이던스 하향",
-      "now": "2026 ~$725B(+77% YoY) · GS: 2027 capex $1.1~1.25조(초강세 $1.4조, +89%) 전망, 컨센(+22%)은 과보수 — 하향 0개사"
-    },
-    "t2": {
-      "name": "CXMT 대량 출하",
-      "threshold": "캐파 300K wpm+ & 점유 15%+ & 3사 대비 -20% 할인",
-      "now": "~240K wpm 피크 정체(美 수출통제)·점유 ~7.7%·가격 3사 동일 — 임계 미달. 단 中 2조위안 AI 인프라+AI칩 80% 국산화 추진으로 중장기 모니터링 강화"
-    },
-    "t3": {
-      "name": "멀티플 de-rating",
-      "threshold": "MU 선행 PER 고점 대비 -30% (舊 'AI 규제/시위' 대체)",
-      "now": "MU 선행 PER 8.45배(-23%, 임계 -30% 미달) · MS: LTA 70%+로 멀티플 5배→8~10배 리레이팅 논거 · AI 인프라 중 메모리 최저배수(4배·PEG 0.8) — de-rating 미발생"
-    }
-  },
-  "yellowCards": [
-    {
-      "id": "y1",
-      "name": "수출단가 MoM 2개월 연속 하락",
-      "now": "6/1-10 반도체 수출 +205.8% YoY(월초 사상 최대)·비중 38.7% — 수출 모멘텀 강세, 단가($/kg)는 월말 확정 대기, 미발동",
-      "on": false
-    },
-    {
-      "id": "y2",
-      "name": "DDR5 스팟가 4주 연속 하락",
-      "now": "6/3 주간 DDR4·DDR5 동반 상승(DDR4 1Gx8 +3.57%) — 4주 연속 하락 아님, 미발동",
-      "on": false
-    },
-    {
-      "id": "y3",
-      "name": "LTA 상단 = 스팟 근접 (인상 속도 둔화)",
-      "now": "RDIMM ~$1,300 추정 근접 — MS 3Q26 +20~30% 인상 지속 전망이나 QoQ 증가율은 2Q +58~63%→3Q +20~30%로 둔화 관찰 → 유지",
-      "on": true
-    }
-  ],
-  "notes": [
-    {
-      "date": "2026-06-11",
-      "text": "[시그널 판정] 6개 매도 시그널 전부 OK 유지(토글 변경 없음). 근거: ①재고 저점 ②MS 3Q26 DRAM +20~30% 인상 지속 전망(컨센 15% 상회)·'건강한 조정'론 ③NVIDIA SOCAMM 축소=수요둔화 아닌 LPDRAM 공급제약(TrendForce), 비트공급 +25% 가이던스 부재 ④GS 2027 빅4 capex $1.1~1.25조 전망, 하향 0개사 ⑤CXMT 정체 ⑥MU PER 8.45배·MS 멀티플 8~10배 리레이팅 논거로 de-rating 미발생. 옐로카드 y1·y2 미발동, y3 유지. [신설] AI 펀딩/신용 스트레스 트래커(펀딩 탭) 도입 — SoftBank·OpenAI 마진론 좌초는 YELLOW(모니터링)로 등급화, 매수/매도 행동 트리거 아님(진짜 트리거=빅4 capex 하향=t1)"
-    },
-    {
-      "date": "2026-06-11",
-      "text": "[속보-수출] 관세청 6/1-10 수출 $286억(+85.9% YoY)로 월초 기준 역대 최대(4월 $252억 경신). 반도체 +205.8% YoY 월초 사상 최대·전체 비중 38.7%로 확대, 일평균 수출 +46.1%. 대중국 +101.4%·대미 +54.4%. 무역수지 +$53억 흑자 — 메모리 수출 모멘텀 재확인. 단 $/kg 단가는 월말 TRASS 확정 대기로 가격지표 5월 값 유지"
-    },
-    {
-      "date": "2026-06-11",
-      "text": "[모건스탠리] '건강한 조정(Healthy Reset)' — 최근 주가·가격 조정은 강세장 종료 아닌 상승동력 연장 과정(2022년 가을 이후 유사 단기조정 3회). AI 구조적 수요는 단말 수량 기반 PC/폰과 달리 무한 확장, 차세대 GPU는 메모리 대역폭 병목→유닛당 DRAM 4~7배 급증. LTA가 3~5년 공급 70%+ 차지→변동성 완화·멀티플 5배→8~10배 리레이팅 근거. 3Q26 DRAM +20~30% 인상 지속. 온디바이스 AI(AI PC 128GB LPDDR5X)는 보너스 수요 — s2·t3 OK 보강"
-    },
-    {
-      "date": "2026-06-11",
-      "text": "[TrendForce/메리츠] NVIDIA, Vera Rubin Superchip의 SOCAMM 탑재용량 절반 축소 — 수요둔화 아닌 2027 배정 LPDRAM 캐파 부족(엔비디아 추정수요의 ~60%만 충족, 추가여지 제한)에 따른 아키텍처 타협. 모듈당 용량↓·모듈 출하량↑로 비트 총수요 불변, 독립형 Vera CPU 랙 공격 확대로 LPDRAM 수요 성장. AI 서버가 2028~30 스마트폰 제치고 최대 LPDRAM 단일시장 부상 전망 — 공급제약 재확인(s3·수요 견고성 보강), JPM의 SOCAMM 해석과 일치"
-    },
-    {
-      "date": "2026-06-11",
-      "text": "[GS-Capex] 하이퍼스케일러 2027 capex 컨센(+22% 둔화)은 과보수적. 철도·자동차 초기 인프라기처럼 GDP 2~3% 수준 도달 시 2027 capex $1.1~1.25조, 초강세(유동성·IG채권 수용력 감안) $1.4조(+89%) 가능 — t1(빅4 capex 하향) OK 강력 보강"
-    },
-    {
-      "date": "2026-06-11",
-      "text": "[밸류에이션] AI 인프라 세부업종 시총증가÷선행2년 EBITDA증가 배수 — 메모리 4배로 최저(PEG 0.8), 광네트워크 41배·반도체 14배·하이퍼스케일러 11배. 메모리는 '침체 사이클 회귀' 의구심이 반영된 최저평가 → LTA 구조변화 가시화 시 리레이팅 여지 최대(t3 논거). 하이퍼스케일러는 5년평균比 -19% 할인거래로 capex 둔화에도 실적타격 제한적 평가"
-    },
-    {
-      "date": "2026-06-11",
-      "text": "[펀딩-YELLOW] 소프트뱅크, OpenAI 지분 담보 $60억 마진론 협상 6/10 중단(목표 $100억→$60억). 사유=비상장 담보가치 산정 불가→사적 밸류($8,520억)가 신용시장서 미인정. OpenAI 본체 펀더와는 별개(MS 재협상으로 현금 개선). AB: 단독 red flag 아님. 단 신용시장 AI 익스포저(정크 38%·IG 49%)·순환자금·Fed 시스템리스크 지목과 함께 'AI 자금조달이 무한정 싸다'는 전제의 첫 균열 → 모니터링 항목으로 승격(펀딩 탭). 메모리 수요 1차 동인은 OpenAI 현금흐름이 아니라 빅4 capex"
-    },
-    {
-      "date": "2026-06-10",
-      "text": "[시그널 판정] 6개 시그널 전부 OK 유지(토글 변경 없음). 근거: ①재고 DRAM 2~3주 역사적 저점(8주+ 미달) ②계약가 — MS가 3Q26 server OEM DRAM +25~30%·NAND +20~40% QoQ 전망(컨센서스 15% 상회=업사이드 서프라이즈), 하락 신호 전무 ③3사 capex 기술전환 중심·비트공급 +25% 가이던스 부재 ④빅4 capex 하향 0개사 ⑤CXMT ~240K wpm 정체·점유 ~7.7%(단 中 2조위안 AI 인프라·AI칩 80% 국산화는 중장기 관찰) ⑥MU 선행 PER 8.45배(-23%)·Cantor MU $1,500/Goldman 3사 TP 상향으로 de-rating 미발생. 옐로카드 y1·y2 미발동, y3(LTA 상단 근접+QoQ 증가율 둔화) 유지. 가격 지표는 신규 확정치 부재로 5월 값 유지, 6/1-10 수출 잠정치 6/11경 반영 예정"
-    },
-    {
-      "date": "2026-06-10",
-      "text": "[모건스탠리] server OEM들 3Q26(C3Q26) DRAM 계약가 전분기比 +25~30%·NAND +20~40% 추가 상승 전망 제시. 현 시장조사·증권가 컨센서스는 DRAM +15% 수준 → 3Q26 가격이 예상치를 상회하는 업사이드 서프라이즈 가능성 시사. s2(계약가 QoQ 하락) OK 강력 보강 — 다만 QoQ 증가율 자체는 2Q +58~63%→3Q +25~30%로 둔화(y3 관찰 사유)"
-    },
-    {
-      "date": "2026-06-10",
-      "text": "[엔비디아-SK하이닉스] 6/7 다년 기술 파트너십 체결 — SK를 엔비디아 '최대 메모리 파트너'로 공식 지정. Vera Rubin(HBM/DRAM/NAND)·Vera CPU(SOCAMM2)·RTX Spark PC(LPDDR5X)·Jetson Thor까지 전방위 확대, HBM4 초도 3Q26. 젠슨: 향후 5년 DRAM 웨이퍼 캐파 2배 늘려도 AI 수요 감당 부족 가능. SK 2027년까지 수요 가시성 확보·공급 제약 특성상 3사 전체 낙수효과 — 수요 견고성·공급 규율 동시 강화"
-    },
-    {
-      "date": "2026-06-10",
-      "text": "[JPM] SOCAMM CPU당 탑재량 192GB→96GB 하향 보도는 스펙다운이 아니라 공급부족(supply shortage) 탓 — 96GB 모듈 수요 강세, 엔비디아 SOCAMM 비트 조달 총량은 불변(모듈 수량 증가로 상쇄). SOCAMM 오해+지정학 이슈로 지난주 메모리 업종 ~11% 조정은 중기 업사이클 진입 앞둔 저점매수 기회로 해석 — 수요 둔화 우려는 기우, s2/수요 견고성 유지"
-    },
-    {
-      "date": "2026-06-10",
-      "text": "[Cantor/Goldman] Cantor(CJ Muse) MU TP $1,500·SNDK $2,900로 상향, OW·TOP PICK 유지 — DRAM·NAND 2026~28년 내내 공급부족 전망, 2026말까지 양 시장 비트의 ~50%가 선급금·보장가격 포함 LTA로 고정→가격발견 구조 영구 변화. Goldman도 '메모리 PE 밸류에이션' 지지하며 SK·삼성·키옥시아 3사 TP 상향. t3(멀티플 de-rating) 미발생 재확인"
-    },
-    {
-      "date": "2026-06-10",
-      "text": "[수요 방증] 中 NDRC, 5년간 2조위안(~$2,950억) 전국 AI 데이터센터 네트워크 구축 추진(2028 목표, 전력망 포함시 최대 5조위안)·AI칩 80% 화웨이 등 국산화 검토 → 글로벌 메모리 수요 견인이나 중국 메모리 자립(CXMT 등) 중장기 t2 관찰 강화. 대만 4대 ODM(Quanta +94% YoY 등) 5월 역대 최대·Macronix(+176% YoY)·ADATA(+210% YoY, 3개월 연속 최고) — AI 서버·메모리 수요 폭증·공급 타이트 방증"
-    },
-    {
-      "date": "2026-06-09",
-      "text": "[시그널 판정] 6개 시그널 전부 OK 유지(토글 변경 없음). 근거: ①재고 — DRAM 2~3주·NAND 3~4주 역사적 저점 지속으로 8주+ 임계 미달 ②계약가 — 2Q26 +58~63% QoQ에 3Q·4Q26 상승 지속 전망(저가 노트북·서버 리스토킹·공급사 가격결정력 우위, TrendForce) ③3사 capex — 기술전환 중심·비트공급 +25% 가이던스 부재로 임계 미달 ④빅4 — capex 상향 기조 지속, 하향 0개사 ⑤CXMT — ~240K wpm 피크 정체(美 수출통제)·점유 ~7.7%·가격 3사 동일, 상하이 신공장 양산 2027 ⑥MU 선행 PER 8.45배(GuruFocus 6/6) — 고점 ~11배 대비 약 -23%로 -30% 임계 미달. 옐로카드 y1·y2 미발동, y3(LTA 상단 근접) 유지. 6월 1-10일 수출 잠정치(6/11경 발표) 대기로 수출단가는 5월 값 유지, 신규 확정 수치 부재로 가격 지표 v19 유지"
-    },
-    {
-      "date": "2026-06-09",
-      "text": "[HBM 경쟁] 삼성전자 HBM4 양산 출하 본격화 — AMD 차세대 MI455X에 삼성 HBM4 주공급(primary) 납품, 1Q 기준 삼성 HBM 점유율 ~30%까지 상승 추정. SK하이닉스는 2026년 HBM 물량 완판·엔비디아 약 70% 점유 유지. HBM4 멀티벤더 구도 형성 = 공급 3사 과점·수요 견조 재확인(공급 규율 유지), 시그널 영향 없음"
-    },
-    {
-      "date": "2026-06-09",
-      "text": "[계약가] TrendForce — 2Q26 conv DRAM 계약가 +58~63% QoQ(1Q +90~95% 대비 둔화이나 강세), PC DRAM 상승세 3Q·4Q26로 연장 전망. 저가 노트북 호조·서버 리스토킹·공급사 재고 저점으로 가격결정력 유지. 서버 DDR5 수익성이 연초 이후 HBM3e 상회 지속 — s2(계약가 QoQ 하락) OK 유지 근거"
-    },
-    {
-      "date": "2026-06-09",
-      "text": "[공급-CXMT] CXMT DRAM 캐파 ~240K wpm 피크 정체(2025말 290K에서 둔화, 美 장비·기술 수출통제). 상하이 신공장(허페이 2~3배 규모) 장비 반입 2026 하반기·양산 2027 목표. UBS 추정 중국 메모리 26년 +120~140K wpm 증설 — 의미있는 공급 기여는 2027년+. t2(CXMT 대량출하) 임계 모두 미달, OK 유지"
-    },
-    {
-      "date": "2026-06-08",
-      "text": "[CLSA] AI가 메모리 시장 재편 — TP 대폭 상향: 삼성전자 40만→54만원, SK하이닉스 252만→370만원, Micron $970→$1,320. 메모리=AI 인프라의 신규 '기반 레이어'로 반도체 스택 내 전략적 가치 재평가 논리. 향후 3~4년 공급부족 지속, 다년 공급계약(LTA)이 공급사 캐파 최대 50% 차지 → 이익구조 구조적 변화. DRAM 재고 2~3주 역사적 저점, 하반기 계약 ASP 3Q/4Q +8%/+3% 모델(협상력 공급사 우위로 업사이드), HBM 블렌디드 ASP +30% 전망"
-    },
-    {
-      "date": "2026-06-08",
-      "text": "[CLSA] 수요 구조 — AI 경쟁이 모델·GPU보다 '메모리' 경쟁으로 이동. 컨텍스트 윈도 확대로 KV캐시를 HBM→서버 DRAM/eSSD로 오프로딩 필요 증가 → 클라우드 하이퍼스케일러 서버 점유 27년 35%→48%. 서버 고객 128/256GB RDIMM 조달 확대, 공급사 모바일 DRAM 캐파를 서버 제품으로 재배치. 서버 DRAM 수요 26/27년 +45%/+55% — s2(계약가) OK 유지·수요 견고성 보강"
-    },
-    {
-      "date": "2026-06-08",
-      "text": "[번스타인] VR/NVL72 랙 1대 원가 ~$910만(언론 ~$800만은 구 메모리가격 기준). 차이의 대부분은 HBM — HBM4 ~$16.6/GB 가정, VR 본격 출하 27년 $53/GB까지 상승 전망(NVDA 비용 전가 가능). 랙당 메모리+스토리지 ~$320만으로 과거가격 암시치 $200만 상회 → 메모리 affordability 논거·blended ASP 상승 경로 정량 뒷받침"
-    }
-  ],
-  "updatedAt": "2026-06-11 09:36 KST",
-  "fundingVerdict": {
-    "title": "현재 등급: YELLOW FLAG (모니터링)",
-    "body": "단일 마진론 실패는 노이즈에 가까움. red flag 승격 조건 = 빅4 capex 가이던스 하향 + AI 신용조달비용의 구조적 상승. 분수령: 2027년 3월 소프트뱅크 $400억 브릿지론 만기."
-  },
-  "fundingFlags": [
-    {
-      "id": "f1",
-      "level": "yellow",
-      "name": "SoftBank–OpenAI 마진론 좌초",
-      "now": "6/10 OpenAI 지분 담보 $60억 마진론 협상 중단(목표 $100억→$60억, ~$50억 확보분도 와해). 사유=비상장 담보가치 산정 불가 → 사적 밸류($8,520억)가 신용시장서 거의 미인정. OpenAI 본체와는 별개"
-    },
-    {
-      "id": "f2",
-      "level": "yellow",
-      "name": "AI 신용시장 익스포저",
-      "now": "하이일드 발행 38%·IG 49%가 AI 연계(Apollo). Fed, AI를 최상위 시스템 리스크로 지목. 순환자금(엔비디아→OpenAI 최대 $1,000억→GPU 구매로 회귀). Burry 닷컴 경고"
-    },
-    {
-      "id": "f3",
-      "level": "watch",
-      "name": "엔비디아 매출채권",
-      "now": "~$330억으로 급증 — 벤더 파이낸싱·수요 질(質)을 보여주는 선행지표로 트래킹"
-    },
-    {
-      "id": "f4",
-      "level": "watch",
-      "name": "OpenAI 현금소진 (별개)",
-      "now": "MS 재협상으로 매출분배 캡(2030까지 $380억)으로 ~$970억 절감, 현금 개선. 단 소진 막대: 2026 ~$270억·2027 ~$630억, 2030 흑자전환 無. 컴퓨트 목표 $6,000억(1.4조→하향)·2030 매출 목표 $2,800억"
-    },
-    {
-      "id": "f5",
-      "level": "green",
-      "name": "빅4 하이퍼스케일러 capex (1차 동인)",
-      "now": "2026 ~$725B·META 상향·GOOGL 추가, 자체 FCF 견조로 신용시장 의존 낮음. GS: 2027 $1.1~1.25조(최대 $1.4조). 진짜 sell trigger=capex 가이던스 하향(매도 탭 t1)"
-    },
-    {
-      "id": "f6",
-      "level": "watch",
-      "name": "분수령: SoftBank 브릿지론 만기",
-      "now": "2027.3 $400억 브릿지론 — 조달이 계속 막히면 Stargate류 자금에 균열 → 2027~28 데이터센터 빌드아웃 지연 → 메모리 LTA 선점 내러티브 약화로 전이 가능. Base 시간축 점검 분기점"
-    }
-  ]
-};
+window.__THESIS_DATA__ = {"dataVersion":31,"lastUpdate":"2026-06-14","dramPrice":83446,"dramPeriod":"6월 1-10일(잠정)","dramMom":-6.8,"dramYoy":483.3,"flashPrice":62256,"flashMom":-7.5,"flashYoy":537.4,"position":"풀 홀딩","signals":{"s1":true,"s2":true,"s3":true,"t1":true,"t2":true,"t3":true},"signalMeta":{"s1":{"name":"DRAM 재고 8주+","threshold":"공급사 DRAM 재고 주수 ≥ 8주 (TrendForce/IB, 분기)","now":"공급사 DRAM 재고 2~3주(SK·MU 각 ~2주)·NAND 3~4주 — 정상 10~12주의 절반 이하, 역사적 저점 지속. 수요 +35% vs 공급 +23%로 갭 확대, MU는 핵심수요 55~60%·삼성 70%만 충족(6/13). CSP가 LTA로 공급 선점, 신규 Fab(MU ID1) 가동 2027+ — 8주+ 임계 미달"},"s2":{"name":"계약가 QoQ 하락","threshold":"TrendForce conv DRAM 계약가 QoQ < 0%","now":"1Q26 conv DRAM +90~95% QoQ(전 제품군 사상 최대)·2Q26E +58~63% QoQ(NAND 최대 +75%, 증가율 둔화이나 강한 상승) · TrendForce 6/10 스팟 DDR5 상승 모멘텀 지속·DDR4 6/9 $35.90(+2.22% WoW)·DDR4 타이트가 DDR3로 전이 · PC DRAM 계약가 3Q·4Q 상승 연장 전망 — 하락 신호 전무"},"s3":{"name":"3사 Capex 공격 전환","threshold":"WFE 장비투자 가속 + 비트공급 가이던스 +25%↑ (셸 투자 제외)","now":"MU 26 capex $13.5B(+23% YoY)·SK $20.5B(+17%)·삼성 $20B(+11%)이나 ID1·M15x·P4L 신규 캐파 효과는 2027+ 후행, 26년 비트공급 영향 제한적(TrendForce). HBM이 DRAM 웨이퍼 ~30% 잠식(4월 기준)→net 비트공급 제약·수요 +35% vs 공급 +23%. +25% 비트 가이던스 부재 — 공급규율 유지, 임계 미달"},"t1":{"name":"빅4 Capex 하향","threshold":"MSFT·GOOGL·AMZN·META 중 2개사+ 가이던스 하향","now":"2026 빅4 capex $725B(+77% YoY, 2025 $410B) 재확인(Tom's/FT/CreditSights 상향) · Microsoft CY26 $190B(컨센 $152B 상회)·Alphabet 최대 $190B(+$5B 상향)·Amazon ~$200B·Meta $125~145B(부품가·DC비용 반영 상향) · 애널 'capex 베어 논거=무가치(garbage)' — 하향 0개사"},"t2":{"name":"CXMT 대량 출하","threshold":"캐파 300K wpm+ & 점유 15%+ & 3사 대비 -20% 할인","now":"2026 캐파 ~300K wpm 전망(삼성 1c 200K 상회)이나 점유 3Q25 ~8%(2024 5%)·가격 3사 동일·美 수출통제로 DDR5-8000/LPDDR5X-10667 발표·양산 본격화 차년도. Counterpoint 'upside 가능성' 단서. 점유 15%·할인 -20% 동시충족 미달로 임계 미달, 캐파 임계 근접으로 중장기 모니터링 강화"},"t3":{"name":"멀티플 de-rating","threshold":"MU 선행 PER 고점 대비 -30% 이상 하락","now":"MU 선행 PER 9.10배(GuruFocus 6/13, 고점 ~11배 대비 약 -17%, 임계 -30% 미달)·일부 출처 10~11배 · Investing.com '10.7배도 저평가' · 6/24 실적(장마감 후) 앞두고 강세 전망 다수 · Gartner 26년 DRAM +125%·NAND +234% 전망 — de-rating 미발생"}},"yellowCards":[{"id":"y1","name":"수출단가 MoM 2개월 연속 하락","now":"메리츠/TRASS 6월(1-10) DRAM 83,446$/kg -6.8% MoM(1-10기준; 5월 +16.7%→첫 월 하락, 2개월 연속 아님)·메모리 총단가 +2.6% MoM(MCP·모듈 믹스). 6/11-20 same-basis 확정치 미발표로 6월(1-10) 값 유지 → 7월초 6월 full 확정치로 점검, 현재 미발동","on":false},{"id":"y2","name":"DDR5 스팟가 4주 연속 하락","now":"TrendForce 6/10 스팟 — DDR5 상승 모멘텀 지속·구매자 고가 수용도 상승, DDR4 타이트가 DDR3로 전이되며 동반 상승. DDR4 6/9 $35.90(+2.22% WoW) — 4주 연속 하락 아님, 미발동","on":false},{"id":"y3","name":"LTA 상단 = 스팟 근접 (인상 속도 둔화)","now":"2Q26E conv DRAM +58~63% QoQ로 1Q26 +90~95%서 증가율 둔화 관찰(가격 하락 아님, 인상 속도 둔화) → 유지","on":true}],"notes":[{"date":"2026-06-14","text":"[구조분석-MS] Morgan Stanley: AI가 메모리를 '구조적 병목'으로 전환. 메모리價 1년 +6배로 1957~2020 하락추세 영구 이탈. 제조사가 DC/AI용 고수익 제품을 우선 배분 → 스마트폰·PC·차량·산업용 공급 축소, 추세 지속 시 2027 PC·스마트폰 메모리 부족 예상. CSP가 LTA·선결제로 캐파 선점 → 전통적 상품가격 메커니즘 약화. 신규 Fab 구축·검증에 수년 소요로 다년 공급 병목 — s1(재고저점)·s2(계약가)·s3(공급규율) OK를 구조적으로 보강"},{"date":"2026-06-14","text":"[수요-TSMC 패키징] TSMC 첨단패키징 로드맵: CoWoS-S(GPU당 HBM 8)→CoWoS-L/R(12, 양산중)→CoPoS 2028(16)→차세대 Super Carrier 2029(최대 24). 과거 GPU 옆 메모리 탑재공간(캔버스)이 물리적 상한이었으나 CoPoS 등으로 면적을 물리 확장 → GPU당 HBM 한계가 8→24개로 계단식 상승. HBM 탑재량 상한 돌파가 HBM TAM을 지속 상향 → 메모리가 경기순환이 아닌 '지속 팽창 구조적 성장' 시장에 근접(1파동 GPU/HBM 수요 핵심 보강). 수요 탭에 로드맵 시각화 반영"},{"date":"2026-06-14","text":"[BOM-MLCC 슈퍼사이클] 골드만삭스가 MLCC를 '차세대 메모리칩'으로 지목 — AI 서버용 고용량·고전압·대형 MLCC 수요 급증, 시장 2025→2030 약 4.3배. MS VR200 BOM 분석: MLCC $4,320(전세대比 +182%)로 GPU·HBM에 이은 3위 핵심부품. Taiyo Yuden(2026.5) '고급 AI MLCC 수요가 공포스러운 수준·캐파 물리한계 근접' 경고, 18~24개월 증설주기로 공급확대 제약·일/한 과점. 시사점: 가격급등은 메모리 단독 현상이 아니라 AI 서버 BOM 전반의 구조적 인플레 → 고단가를 시스템이 흡수하는 'affordability' 논거 보강(단가 탭 BOM 인플레 섹션 반영, t3 de-rating 방어)"},{"date":"2026-06-14","text":"[업황-2H26 공급망] 대만 공급망(CTEE 6/14): 에이전트 AI 확산으로 서버·CPU 수요 폭증, 2H26>1H26 전망. 실리콘웨이퍼(GlobalWafers 등) 바닥 반등·고객 재고전략 '소진→확충' 전환으로 주문 가시성 개선, ASPEED 분기 연속 성장·UMC PMIC/22나노 개선. 단 샹숴 등 메인보드 업체는 CPU 부족+메모리價 상승으로 수요 둔화(보수적) → 저가 PC/세트의 수요파괴는 마진 관찰 포인트이며 견고한 수요는 DC/AI로 집중. s2(가격강세)·수요 견고성 보강"},{"date":"2026-06-14","text":"[구조분석-MS] Morgan Stanley: AI가 메모리를 '구조적 병목'으로 전환. 메모리價 1년 +6배로 1957~2020 하락추세 영구 이탈. 제조사가 DC/AI용 고수익 제품을 우선 배분 → 스마트폰·PC·차량·산업용 공급 축소, 추세 지속 시 2027 PC·스마트폰 메모리 부족 예상. CSP가 LTA·선결제로 캐파 선점 → 전통적 상품가격 메커니즘 약화. 신규 Fab 구축·검증에 수년 소요로 다년 공급 병목 — s1(재고저점)·s2(계약가)·s3(공급규율) OK를 구조적으로 보강"},{"date":"2026-06-14","text":"[수요-TSMC 패키징] TSMC 첨단패키징 로드맵: CoWoS-S(GPU당 HBM 8)→CoWoS-L/R(12, 양산중)→CoPoS 2028(16)→차세대 Super Carrier 2029(최대 24). 과거 GPU 옆 메모리 탑재공간(캔버스)이 물리적 상한이었으나 CoPoS 등으로 면적을 물리 확장 → GPU당 HBM 한계가 8→24개로 계단식 상승. HBM 탑재량 상한 돌파가 HBM TAM을 지속 상향 → 메모리가 경기순환이 아닌 '지속 팽창 구조적 성장' 시장에 근접(1파동 GPU/HBM 수요 핵심 보강). 수요 탭에 로드맵 시각화 반영"},{"date":"2026-06-14","text":"[BOM-MLCC 슈퍼사이클] 골드만삭스가 MLCC를 '차세대 메모리칩'으로 지목 — AI 서버용 고용량·고전압·대형 MLCC 수요 급증, 시장 2025→2030 약 4.3배. MS VR200 BOM 분석: MLCC $4,320(전세대比 +182%)로 GPU·HBM에 이은 3위 핵심부품. Taiyo Yuden(2026.5) '고급 AI MLCC 수요가 공포스러운 수준·캐파 물리한계 근접' 경고, 18~24개월 증설주기로 공급확대 제약·일/한 과점. 시사점: 가격급등은 메모리 단독 현상이 아니라 AI 서버 BOM 전반의 구조적 인플레 → 고단가를 시스템이 흡수하는 'affordability' 논거 보강(단가 탭 BOM 인플레 섹션 반영, t3 de-rating 방어)"},{"date":"2026-06-14","text":"[업황-2H26 공급망] 대만 공급망(CTEE 6/14): 에이전트 AI 확산으로 서버·CPU 수요 폭증, 2H26>1H26 전망. 실리콘웨이퍼(GlobalWafers 등) 바닥 반등·고객 재고전략 '소진→확충' 전환으로 주문 가시성 개선, ASPEED 분기 연속 성장·UMC PMIC/22나노 개선. 단 샹숴 등 메인보드 업체는 CPU 부족+메모리價 상승으로 수요 둔화(보수적) → 저가 PC/세트의 수요파괴는 마진 관찰 포인트이며 견고한 수요는 DC/AI로 집중. s2(가격강세)·수요 견고성 보강"},{"date":"2026-06-14","text":"[시그널 판정] 6개 매도 시그널 전부 OK 유지(토글 변경 없음·v30). 측정기준 판정: ①s1 — 공급사 DRAM 재고 2~3주·NAND 3~4주 역사적 저점, 수요 +35% vs 공급 +23% 갭 확대·MU 핵심수요 55~60%·삼성 70%만 충족(6/13)으로 8주+ 미달 ②s2 — 1Q26 conv DRAM +90~95%·2Q26E +58~63% QoQ, 스팟 DDR5 상승·DDR4 6/9 $35.90(+2.22% WoW) 지속으로 QoQ 하락 전무 ③s3 — MU/SK/삼성 26 capex +23%/+17%/+11%이나 신규 캐파 효과 2027+ 후행·HBM이 웨이퍼 ~30% 잠식·+25% 비트 가이던스 부재로 미달 ④t1 — 빅4 2026 capex $725B(+77% YoY) 재확인(MSFT $190B·GOOGL 최대 $190B·AMZN ~$200B·META $125~145B), 하향 0개사 ⑤t2 — CXMT 26 캐파 ~300K wpm 전망(임계 근접)이나 점유 ~8%·할인 부재로 미달, 중장기 모니터링 강화 ⑥t3 — MU 선행 PER 9.10배(고점 대비 -17%)로 -30% 미달. 옐로카드 y1·y2 미발동, y3(인상속도 둔화) 유지. 가격지표는 6/11-20 same-basis 확정치 부재로 6월(1-10) 값 유지"},{"date":"2026-06-14","text":"[재고/수급-갭] 6/13 집계: 공급사 DRAM 재고 SK·MU 각 ~2주·NAND 3~4주로 역사적 저점 지속. 2026 수요 +35% vs 공급 +23%로 수급 갭 확대, MU는 핵심수요의 55~60%·삼성 70%만 충족. HBM 생산이 전체 DRAM 웨이퍼의 ~30% 잠식(4월 기준, 한때 5% 미만)→레거시/서버 DRAM 비트 제약 심화. SK하이닉스 26년 HBM·DRAM·NAND 전 제품 완판·2027까지 공급부족 — s1/s2/s3 모두 OK 강력 보강"},{"date":"2026-06-14","text":"[Capex/멀티플-t1·t3] 빅4 2026 capex $725B(+77% YoY) 재확인(Tom's·FT·CreditSights 상향 기조): MSFT CY26 $190B(컨센 $152B 상회)·Alphabet 최대 $190B(+$5B)·Amazon ~$200B·Meta $125~145B(부품가·DC비용 반영 상향). 하향 0개사로 t1 OK. MU 선행 PER 9.10배(GuruFocus 6/13, 고점 ~11배 대비 -17%)·Investing.com '10.7배도 저평가' 평가·6/24 실적 앞두고 강세 전망 — t3 OK(de-rating 미발생)"},{"date":"2026-06-14","text":"[CXMT-t2] Counterpoint/디지타임스: CXMT 2026 DRAM 캐파 ~300K wpm 전망(삼성 1c 200K 상회)·'upside 가능성' 단서이나 점유율 여전 ~8%(2024 5%)·가격 3사 동일·美 수출통제로 DDR5-8000/LPDDR5X-10667 발표만, 양산 본격화는 차년도. 연말 국산 HBM3 시도. t2 임계(300K wpm+ & 점유 15%+ & 3사 -20% 할인 동시충족) 중 점유·할인 미충족으로 OK 유지, 캐파 임계 근접으로 중장기 공급위협 모니터링 강화(토글 사유 아님)"},{"date":"2026-06-13","text":"[시그널 판정] 6개 매도 시그널 전부 OK 유지(토글 변경 없음·v29). 측정기준 판정: ①s1 — 재고 DRAM 2~3주·NAND 3~4주 역사적 저점, CSP LTA 선점·캐파 확장 2027말 이후(TrendForce 6/1)로 8주+ 미달 ②s2 — 1Q26 conv DRAM +90~95% QoQ(산업매출 +81%)·2Q26E +58~63% QoQ로 둔화이나 여전히 강세, 스팟 DDR5 상승 지속으로 QoQ 하락 전무 ③s3 — 삼성 캐파 +50%·SK 인프라 4배이나 HBM이 DRAM 웨이퍼 ~23% 잠식·+25% 비트 가이던스 부재로 미달 ④t1 — 빅4 2026 capex $725B(+77% YoY) 재확인, 하향 0개사 ⑤t2 — CXMT 26년 캐파 ~300K wpm 도달 전망(임계 근접)이나 점유 ~8%·할인 부재로 미달, 중장기 모니터링 강화 ⑥t3 — MU 선행 PER 8.64배(고점 대비 -21%)로 -30% 미달. 옐로카드 y1·y2 미발동, y3(인상속도 둔화) 유지. 가격지표는 신규 TRASS 확정치 부재로 6월(1-10) 값 유지"},{"date":"2026-06-13","text":"[CXMT-t2 캐파상향] 복수 기관, CXMT 2026 DRAM 생산캐파 ~300K wpm 도달 전망(기존 추정 ~240K서 상향, 삼성·SK 각 절반 수준 근접). 점유율 3Q25 ~8%(4위, 2024 5%서 상승)·美 수출통제 지속에도 DDR5-8000·LPDDR5X-10667 발표(서버·PC·플래그십폰 겨냥, 양산 본격화는 차년도). t2 임계(300K wpm+ & 점유 15%+ & 3사 대비 -20% 할인 동시충족) 중 캐파만 임계 근접·점유와 할인은 미충족으로 OK 유지하나, 캐파 추정 상향으로 중장기 공급위협 모니터링 등급 강화(토글 사유 아님)"},{"date":"2026-06-13","text":"[계약가-TrendForce] 1Q26 conv DRAM 계약가 +90~95% QoQ(전 제품군 사상 최대폭)·산업 매출 +81% QoQ. 2Q26E conv DRAM +58~63%·NAND 최대 +75% QoQ — 증가율은 1Q 대비 둔화되나 여전히 가파른 상승으로 매도 시그널(QoQ<0%) 아님. CSP가 북미 AI 추론 인프라 램프로 고용량 RDIMM 대량 확보, LTA로 공급 대부분 선점·의미있는 캐파 확장은 2027말 이후 → s2 OK·공급 타이트 재확인"},{"date":"2026-06-13","text":"[시장점유/수급] Omdia 1Q26 DRAM 매출점유 삼성 38.6%·SK 28.8%·MU 22.4%, SK는 HBM 비중으로 영업이익률 ~72%(사상 최고). BofA 2026 글로벌 DRAM 매출 +51%·NAND +45% YoY(ASP +33%·+26%) 전망. HBM3e–서버 DDR5 ASP 격차 26년 말 1~2배로 축소(기존 3~5배). SK하이닉스 26년분 HBM·DRAM·NAND 전 제품 완판, 2027까지 공급부족 — 수요 견고성·s1/s2 보강"},{"date":"2026-06-13","text":"[속보-수출] 관세청 6/1-10 수출 $286억(+85.9% YoY) 월초 역대 최대 · 반도체 +205.8% YoY $111억(월초 사상 최대)·전체 비중 38.7%(+15.1%p). D램·낸드 가격 전년比 최대 7배. 메모리 수출 모멘텀 재확인. $/kg 단가는 6월 full 월말 TRASS 확정 대기로 6월(1-10) 값 유지"},{"date":"2026-06-12","text":"[시그널 판정] 6개 매도 시그널 전부 OK 유지(토글 변경 없음·v26). 6/12 반영: ①CXMT — Omdia 2026 캐파 +68% YoY·일부기관 280~300K wpm 추정(↑기존 240K)·점유 4Q25 7.67%·상하이 STAR IPO 통과 자금 DDR5/LPDDR6 투입. 단 점유 15%·3사 -20% 할인 미충족으로 t2 OK 유지, 중장기 공급위협 모니터링만 강화 ②빅4 2026 capex $725B(+77% YoY) 재확인(Amazon $200B·GOOGL $175~185B·Meta $125~145B·MSFT $110~120B), 하향 0개사로 t1 OK ③MU 선행 PER 8.64배(-21%)로 t3 OK. s1(재고 저점)·s2(계약가 상승+AMD 2028 정상화)·s3(비트 +25% 가이던스 부재) 모두 OK. 옐로카드 y1·y2 미발동, y3 유지"},{"date":"2026-06-12","text":"[수출단가 월내패턴/6월 추정] 관세청·TRASS는 1-10/1-20/월전체 10일 단위 발표, $/kg=금액÷중량 가중평균. 최근 2개월 1-10일 단가가 최고→11-20→21-31로 하락하는 패턴은 가격 하락이 아니라 믹스/타이밍 효과(HBM·고용량 서버 DDR5 등 고부가 선적이 월초 집중+소표본, 월 진행되며 범용·모듈 희석). 계약가는 월·분기 고정이라 월내 실가격 하락 아님. 정량화: 5월 1-10 DRAM ≈89,534$/kg(6월 -6.8% MoM 1-10기준서 역산)→5월 full 77,557(-13.4%). 동일 패턴 시 6월 full ≈83,446×0.866≈72,300$/kg(레인지 $72~77K·중심 $73~74K). full 기준 MoM은 5월 +16.7%→6월 -6~7% 가능(첫 하락). y1(2개월 연속 하락)은 full-month·same-basis로 판정 → 7월초 6월 확정치가 1차 점검점"},{"date":"2026-06-12","text":"[5월 단가 정정-메리츠/TRASS] 5월 확정(잠정, ~5.31): 메모리 76,312$/kg(+17.0% MoM·+255.0% YoY)·DRAM 77,557$/kg(+16.7% MoM·+453.2% YoY)·Flash 56,750$/kg(+23.6% MoM)·MCP 83,781$/kg(+15.2% MoM)·DRAM모듈 45,573$/kg. 대시보드 5월 DRAM 막대를 기존 오기 $82.8K→정정 $77.6K. 트레일: 4월 $66.5K→5월 $77.6K→6월(1-10) $83.4K(메리츠 6월 -6.8% MoM는 1-10일 기준이라 5월 full-month과 직접 비교 아님)"}],"updatedAt":"2026-06-14 21:30 KST","fundingVerdict":{"title":"현재 등급: YELLOW FLAG (모니터링)","body":"단일 마진론 실패는 노이즈에 가까움. red flag 승격 조건 = 빅4 capex 가이던스 하향 + AI 신용조달비용의 구조적 상승. 분수령: 2027년 3월 소프트뱅크 $400억 브릿지론 만기."},"fundingFlags":[{"id":"f1","level":"yellow","name":"SoftBank–OpenAI 마진론 좌초","now":"6/10 OpenAI 지분 담보 $60억 마진론 협상 중단(목표 $100억→$60억, ~$50억 확보분도 와해). 사유=비상장 담보가치 산정 불가 → 사적 밸류($8,520억)가 신용시장서 거의 미인정. OpenAI 본체와는 별개"},{"id":"f2","level":"yellow","name":"AI 신용시장 익스포저","now":"하이일드 발행 38%·IG 49%가 AI 연계(Apollo). Fed, AI를 최상위 시스템 리스크로 지목. 순환자금(엔비디아→OpenAI 최대 $1,000억→GPU 구매로 회귀). Burry 닷컴 경고"},{"id":"f3","level":"watch","name":"엔비디아 매출채권","now":"~$330억으로 급증 — 벤더 파이낸싱·수요 질(質)을 보여주는 선행지표로 트래킹"},{"id":"f4","level":"watch","name":"OpenAI 현금소진 (별개)","now":"MS 재협상으로 매출분배 캡(2030까지 $380억)으로 ~$970억 절감, 현금 개선. 단 소진 막대: 2026 ~$270억·2027 ~$630억, 2030 흑자전환 無. 컴퓨트 목표 $6,000억(1.4조→하향)·2030 매출 목표 $2,800억"},{"id":"f5","level":"green","name":"빅4 하이퍼스케일러 capex (1차 동인)","now":"2026 ~$725B(+77% YoY)·MSFT ~$190B·GOOGL 최대 $190B·AMZN ~$200B·META 상향, 자체 FCF 견조로 신용시장 의존 낮음. GS: 2027 $1.1~1.25조(최대 $1.4조). 진짜 sell trigger=capex 가이던스 하향(매도 탭 t1)"},{"id":"f6","level":"watch","name":"분수령: SoftBank 브릿지론 만기","now":"2027.3 $400억 브릿지론 — 조달이 계속 막히면 Stargate류 자금에 균열 → 2027~28 데이터센터 빌드아웃 지연 → 메모리 LTA 선점 내러티브 약화로 전이 가능. Base 시간축 점검 분기점"}],"packagingRoadmap":[{"gen":"CoWoS-S","sub":"Silicon Interposer","status":"양산 중","hbm":8},{"gen":"CoWoS-L","sub":"Local Si Bridge","status":"양산 중","hbm":12},{"gen":"CoWoS-R","sub":"RDL Interposer","status":"양산 중","hbm":12},{"gen":"CoPoS","sub":"Chip on Panel on Substrate","status":"2028 도입","hbm":16},{"gen":"Next Gen","sub":"Super Carrier·Multi-Reticle","status":"2029 로드맵","hbm":24}],"bomInflation":[{"rank":1,"part":"GPU","now":"","chg":"","note":"AI 서버 BOM 최대 비중 — 연산 코어"},{"rank":2,"part":"HBM/DRAM","now":"$2.0M","chg":"+435%","note":"VR200 메모리 BOM(MS) · HBM이 DRAM 웨이퍼 ~30% 잠식"},{"rank":3,"part":"MLCC","now":"$4,320","chg":"+182%","note":"GS '차세대 메모리칩' · 시장 2025→2030 4.3배 · Taiyo Yuden 5월 '공포스러운 수요' · 18~24개월 증설로 캐파 물리한계 근접"}]};
 </script>
 
 <div class="wrap">
@@ -593,6 +397,7 @@ function initDashboard(){
       + '<p class="box-eyebrow">$120–150K 근거</p>'
       + rowsHtml
       + '<div class="infobox"><strong style="color:var(--red);">MS "Chipflation":</strong> 1957–2020 5년마다 1/10씩 떨어진 DRAM 가격 추세 <strong>영구 역전</strong>. 전자부품 PPI YoY +30%+. GM 원가 가이던스 +$10–20억.<br/><strong style="color:var(--green);">BofA "구조적 하한선":</strong> 급등 → 고원(plateau). CY28까지 과잉공급 없음.<br/><strong style="color:var(--red);">2027 HBM4e YoY +70–100% (미즈호).</strong><br/><strong style="color:var(--amber);">AMD(맥아피, 6/11):</strong> DDR5 고가, 수급 정상화는 약 2년 뒤 <strong>2028 상반기</strong> — 삼성·MU 증설·CXMT DDR5 공격 확장에도 단기 하락 어려움(이번 상승주기는 회복이 더 길다).<br/><strong style="color:var(--blue);">월내 $/kg 패턴·6월 추정:</strong> TRASS 단가=금액÷중량 가중평균 — HBM·고용량 서버 DDR5가 월초(1-10)에 집중+소표본으로 1-10이 최고, 월 진행되며 범용·모듈 희석으로 하락(가격하락 아닌 믹스/타이밍). 5월 1-10 ~$89.5K→full $77.6K(-13.4%). 동일 패턴이면 <strong>6월 full ≈ $72~74K</strong>로 1-10일 $83.4K에서 되돌림.</div>'
+      + (d.bomInflation && d.bomInflation.length ? '<div class="sep"></div><p class="box-eyebrow">AI 서버 BOM 인플레이션 · MS VR200</p>' + d.bomInflation.map(function(b){ return '<div class="num-row"><div class="num-flex"><span class="num-dot">'+b.rank+'</span><div><p class="num-title">'+esc(b.part)+(b.now?' <span class="mono" style="color:var(--red);">'+esc(b.now)+'</span>':'')+(b.chg?' <span style="color:var(--ink-3);font-weight:600;font-size:11px;">'+esc(b.chg)+'</span>':'')+'</p><p class="num-desc">'+esc(b.note||'')+'</p></div></div></div>'; }).join('') + '<div class="infobox">메모리만의 현상이 아님 — MLCC·HBM·GPU 동반 급등. 골드만삭스는 MLCC를 <strong style="color:var(--ink);">\'차세대 메모리칩\'</strong>으로 지목(시장 2025→2030 4.3배), AI 서버 BOM 3위 부품. AI capex 3~4배·서버 BOM 절대금액 급증이 고단가를 흡수(<strong>affordability</strong>) → DRAM 단가 정당화 보강.</div>' : '')
       + '</div>';
   }
 
@@ -621,6 +426,16 @@ function initDashboard(){
         + (isOpen ? '<div class="wave-detail">'+w.d.map(function(x){return '<p>· '+esc(x)+'</p>';}).join("")+'</div>' : '')
         + '</div>';
     });
+    if (d.packagingRoadmap && d.packagingRoadmap.length){
+      html += '<div class="sep" style="margin:20px 0;"></div>'
+        + '<p class="box-eyebrow">TSMC 첨단 패키징 — GPU당 HBM 한계 돌파</p>';
+      d.packagingRoadmap.forEach(function(p){
+        var future = /2028|2029|로드맵|도입/.test(p.status);
+        var pw = Math.round(p.hbm/24*100);
+        html += '<div class="bar-row"><div class="bar-head"><span>'+esc(p.gen)+' <span style="color:var(--ink-4);font-weight:500;">'+esc(p.sub)+'</span></span><span class="mono" style="color:'+(future?'var(--indigo)':'var(--ink)')+';">HBM '+p.hbm+'개 · '+esc(p.status)+'</span></div><div class="bar-track"><div class="bar-fill" style="width:'+pw+'%;background:'+(future?'var(--indigo)':'var(--ink)')+';"></div></div></div>';
+      });
+      html += '<p style="font-size:11px;color:var(--ink-3);margin:10px 0 0;line-height:1.6;letter-spacing:-0.005em;">CoPoS(2028)·차세대(2029)로 GPU당 HBM <strong style="color:var(--ink);">8→24개</strong>. 패키징 캔버스의 물리적 확장이 HBM TAM을 지속 상향 → 메모리 사이클이 경기순환이 아닌 <strong style="color:var(--ink);">구조적 성장</strong> 시장으로 전환(1파동 보강).</p>';
+    }
     html += '<div class="nand-card">'
       + '<p class="nl">💾 NAND</p>'
       + '<p class="nb">Dell: "공급 1순위 = NAND > DRAM > CPU" · MLC 누적 +280% · 니치 수요 전방위 확대 · Kioxia ADR 상장 계획(KID 6/2) · 레거시 회복 의지 부재</p>'
