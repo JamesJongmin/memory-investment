@@ -377,7 +377,7 @@ function initDashboard(){
 
   document.getElementById("ver").textContent = d.dataVersion;
   document.getElementById("updt").textContent = d.lastUpdate;
-  document.getElementById("lastup").textContent = d.updatedAt || d.lastUpdate;
+  try { var _kst = new Date().toLocaleString('sv-SE', {timeZone:'Asia/Seoul', year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit'}); document.getElementById("lastup").textContent = _kst + ' KST'; } catch(e) { document.getElementById("lastup").textContent = d.updatedAt || d.lastUpdate; }
   var warnCount = Object.values(d.signals).filter(function(v){return !v;}).length;
   var yOnCount = (d.yellowCards||[]).filter(function(y){return y.on;}).length;
   var sigColor, sigLabel;
@@ -407,23 +407,23 @@ function initDashboard(){
   function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[c]; }); }
 
   function renderThesis(){
-    function summarizeNote(txt){
-      var m = txt.match(/^\[([^\]]+)\]\s*/);
-      var tag = m ? m[1] : '';
-      var body = (m ? txt.slice(m[0].length) : txt).trim();
-      var imp = '';
-      var si = body.indexOf('시사점:');
-      if (si >= 0) { imp = body.slice(si + 4).trim(); }
-      else { var pm = body.indexOf('측정기준'); if (pm > 0) imp = body.slice(0, pm).replace(/[\s.]+$/,'').trim(); }
-      if (!imp) { var cut = body.search(/[.。]\s/); imp = cut > 0 ? body.slice(0, cut) : body; }
-      if (imp.length > 120) imp = imp.slice(0, 120).replace(/[\s,·∙—–-]+$/,'') + '…';
-      return { tag: tag, imp: imp };
+    var _dlog = d.dailyLog || [];
+    var notesHtml;
+    if (_dlog.length) {
+      notesHtml = _dlog.slice(0,21).map(function(e){
+        var chips = (e.tags||[]).map(function(t){ return '<span style="display:inline-block;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.10);border-radius:7px;padding:3px 9px;margin:0 5px 6px 0;font-size:10px;color:rgba(255,255,255,0.8);">'+esc(t)+'</span>'; }).join('');
+        return '<div style="padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><div style="font-size:10.5px;font-weight:700;color:var(--gold);letter-spacing:0.02em;margin:0 0 7px;">'+esc(e.date)+'</div>'+(e.summary?'<div style="font-size:11.5px;color:rgba(255,255,255,0.76);line-height:1.62;margin:0 0 9px;letter-spacing:-0.003em;">'+esc(e.summary)+'</div>':'')+(chips?'<div>'+chips+'</div>':'')+'</div>';
+      }).join("");
+    } else {
+      var _byDate = {}, _order = [];
+      d.notes.forEach(function(n){ if(!_byDate[n.date]){ _byDate[n.date]=[]; _order.push(n.date); } _byDate[n.date].push(n.text); });
+      notesHtml = _order.map(function(dt){
+        var tags=_byDate[dt].map(function(x){var m=x.match(/^\[([^\]]+)\]/);return m?m[1].split('-')[0].trim():'';}).filter(Boolean);
+        tags=tags.filter(function(t,i){return tags.indexOf(t)===i;});
+        var chips=tags.map(function(t){return '<span style="display:inline-block;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.10);border-radius:7px;padding:3px 9px;margin:0 5px 6px 0;font-size:10px;color:rgba(255,255,255,0.8);">'+esc(t)+'</span>';}).join('');
+        return '<div style="padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><div style="font-size:10.5px;font-weight:700;color:var(--gold);margin:0 0 7px;">'+esc(dt)+'</div><div>'+chips+'</div></div>';
+      }).join("");
     }
-    var notesHtml = d.notes.slice(0,5).map(function(n){
-      var isSignal = /\[시그널|\[테스트|\[디자인/.test(n.text);
-      var sm = summarizeNote(n.text);
-      return '<p class="notes-line'+(isSignal?' signal':'')+'"><span class="notes-date">'+esc(n.date)+'</span>'+(sm.tag?'<strong style="color:rgba(255,255,255,0.9);font-weight:700;">['+esc(sm.tag)+']</strong> ':'')+esc(sm.imp)+'</p>';
-    }).join("");
     return '<div class="thesisbox">'
       + '<p class="label">Investment Thesis</p>'
       + '<div class="chipflation-badge"><span class="pulse-dot"></span>Chipflation · MS</div>'
@@ -460,7 +460,7 @@ function initDashboard(){
       +   '<p style="font-size:11.5px;color:rgba(255,255,255,0.78);line-height:1.8;margin:0 0 11px;letter-spacing:-0.005em;"><span class="orange" style="font-weight:700;">단, ceiling 근접 —</span> 계약가 상단이 스팟(RDIMM <span class="mono">~$1,300 추정</span>)에 붙음 = <span class="orange">catch-up 종료</span>. 이후 상승은 스팟 추가 타이트닝에 의존 → 직선이 아니라 완만한 기울기. <span class="blue">HBM ASP 캐치업(\'27 +50%)·eSSD·서버 믹스 + 2027 캐파 제약</span>으로 blended ASP가 끌어올려지는 경로.</p>'
       +   '<p style="font-size:11.5px;color:rgba(255,255,255,0.78);line-height:1.8;margin:0;letter-spacing:-0.005em;"><span class="red" style="font-weight:700;">관건·리스크 —</span> 고단가($1,300대)에서의 <span style="color:#FFF;font-weight:600;">출하량(수요 탄력성)</span>이 핵심. 최대 리스크는 가격 하락이 아니라 <span class="red">인상 속도 둔화 → de-rating</span>(펀더 멀쩡해도 멀티플 선하락). <span style="color:#FFF;font-weight:600;">3Q26 협상(7–8월)이 첫 분수령.</span></p>'
       + '</div>'
-      + (d.notes.length>0 ? '<div class="notes-block"><p class="notes-label">Recent Updates</p>'+notesHtml+'</div>' : '')
+      + (d.notes.length>0 ? '<div class="notes-block"><p class="notes-label">Daily Log · 일자별 업데이트</p>'+notesHtml+'</div>' : '')
       + '</div>';
   }
 
