@@ -314,9 +314,22 @@ function initDashboard(){
   function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[c]; }); }
 
   function renderThesis(){
+    function summarizeNote(txt){
+      var m = txt.match(/^\[([^\]]+)\]\s*/);
+      var tag = m ? m[1] : '';
+      var body = (m ? txt.slice(m[0].length) : txt).trim();
+      var imp = '';
+      var si = body.indexOf('시사점:');
+      if (si >= 0) { imp = body.slice(si + 4).trim(); }
+      else { var pm = body.indexOf('측정기준'); if (pm > 0) imp = body.slice(0, pm).replace(/[\s.]+$/,'').trim(); }
+      if (!imp) { var cut = body.search(/[.。]\s/); imp = cut > 0 ? body.slice(0, cut) : body; }
+      if (imp.length > 120) imp = imp.slice(0, 120).replace(/[\s,·∙—–-]+$/,'') + '…';
+      return { tag: tag, imp: imp };
+    }
     var notesHtml = d.notes.slice(0,5).map(function(n){
       var isSignal = /\[시그널|\[테스트|\[디자인/.test(n.text);
-      return '<p class="notes-line'+(isSignal?' signal':'')+'"><span class="notes-date">'+esc(n.date)+'</span>'+esc(n.text)+'</p>';
+      var sm = summarizeNote(n.text);
+      return '<p class="notes-line'+(isSignal?' signal':'')+'"><span class="notes-date">'+esc(n.date)+'</span>'+(sm.tag?'<strong style="color:rgba(255,255,255,0.9);font-weight:700;">['+esc(sm.tag)+']</strong> ':'')+esc(sm.imp)+'</p>';
     }).join("");
     return '<div class="thesisbox">'
       + '<p class="label">Investment Thesis</p>'
