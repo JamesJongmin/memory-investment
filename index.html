@@ -739,6 +739,19 @@ function initDashboard(){
     return "";
   }
 
+  function renderKeyMsg(){
+    var km = (d.keyMessages || {})[activeTab];
+    if (!km || !km.headline) return "";
+    return '<div style="background:linear-gradient(135deg,#0B1020 0%,#1B2242 100%);color:#fff;border-radius:18px;padding:18px 20px;margin-bottom:14px;border:1px solid #242B46;box-shadow:var(--shadow-md);">'
+      + '<div style="display:flex;align-items:center;gap:7px;margin-bottom:9px;">'
+      +   '<span style="width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(240,183,47,0.22);"></span>'
+      +   '<span style="font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);">핵심 메시지</span>'
+      +   (km.updated ? '<span style="margin-left:auto;font-size:9.5px;color:rgba(255,255,255,0.4);font-weight:600;">'+esc(km.updated)+'</span>' : '')
+      + '</div>'
+      + '<p style="font-size:13.5px;font-weight:600;line-height:1.62;margin:0;color:rgba(255,255,255,0.92);letter-spacing:-0.008em;">'+esc(km.headline)+'</p>'
+      + '</div>';
+  }
+
   function render(){
     var tabsHtml = tabs.map(function(t){
       return '<button class="tab'+(t.id===activeTab?' active':'')+'" data-tab="'+t.id+'">'+esc(t.label)+'</button>';
@@ -746,6 +759,7 @@ function initDashboard(){
     document.getElementById("tabsRoot").innerHTML = tabsHtml;
 
     var bodyHtml = '<div class="meta"><span class="badge-dot"></span><span><strong style="color:var(--ink);">데이터 v'+d.dataVersion+'</strong> · 최종 '+esc(d.lastUpdate)+' · 매일 갱신은 로컬 thesis-data.json에서 진행</span></div>'
+      + renderKeyMsg()
       + renderBody();
     document.getElementById("root").innerHTML = bodyHtml;
 
