@@ -1,13 +1,13 @@
 {
-  "dataVersion": 44,
+  "dataVersion": 45,
   "lastUpdate": "2026-06-20",
-  "dramPrice": 83446,
-  "dramPeriod": "6월 1-10일(잠정)",
-  "dramMom": -6.8,
-  "dramYoy": 483.3,
-  "flashPrice": 62256,
-  "flashMom": -7.5,
-  "flashYoy": 537.4,
+  "dramPrice": 82260,
+  "dramPeriod": "6월 1-20일",
+  "dramMom": 6,
+  "dramYoy": 576,
+  "flashPrice": 72784,
+  "flashMom": 28,
+  "flashYoy": 546,
   "position": "풀 홀딩",
   "keyMessages": {
     "thesis": {
@@ -15,7 +15,7 @@
       "updated": "2026-06-20"
     },
     "price": {
-      "headline": "DRAM 수출단가 $83.4K/kg(6월 1-10)·계약가 2Q +58~63% QoQ·BofA ASP +33%. 목표 $120~150K — AI capex 3~4배가 고단가를 시스템이 흡수(affordability). 관건은 가격이 아닌 인상 '속도'.",
+      "headline": "DRAM 수출단가 $82.3K/kg(6월 1-20·+6% MoM·+576% YoY, same-basis 상승 확인)·MCP(HBM) $95.9K(+15% MoM)·플래시 $72.8K(+28% MoM). 목표 $120~150K — 애플 capitulation·스팟>계약가 지속으로 단가 상한 논거 강화.",
       "updated": "2026-06-20"
     },
     "demand": {
@@ -27,11 +27,11 @@
       "updated": "2026-06-20"
     },
     "shift": {
-      "headline": "Boom–Bust 사이클의 종말 — LTA로 SaaS형 수익인데 선행 P/E 5~10배. MU TP 상향 행렬(UBS $1,625·CLSA $1,320·MS $1,050), TSMC 17x 수렴 시 2~3배.",
+      "headline": "Boom–Bust 종말·업종 멀티플 리레이팅 본격화 — Kioxia JPM TP 80k→155k엔(NAND/eSSD 리레이팅)·MU TP 행렬(UBS $1,625·CLSA $1,320). Citi '내년 메모리3사 추정치 상향 여력 훨씬 큼'.",
       "updated": "2026-06-20"
     },
     "catalyst": {
-      "headline": "임박 촉매 — 6/24 MU Q3 실적(HBM4 12H 양산·2028 HBM $100B). 빅4 capex $725B·ARM/CPU 르네상스·ADR·주주환원이 시간축 촉매.",
+      "headline": "임박 촉매 — 6/24 MU Q3 실적(HBM4 12H·2028 HBM $100B)·내년 3사 LTA 계약가 협상(스팟>계약가). 빅4 capex $725B·ARM CPU 르네상스·Kioxia 주주환원(26H2)·ADR.",
       "updated": "2026-06-20"
     },
     "sell": {
@@ -60,7 +60,7 @@
     "s2": {
       "name": "계약가 QoQ 하락",
       "threshold": "TrendForce conv DRAM 계약가 QoQ < 0%",
-      "now": "2Q26E conv DRAM +58~63% QoQ·NAND +70~75%·PC 계약가 Q3·Q4 추가 상향. Apple '메모리 1년 +6배·스마트폰 메모리 1Q26 +90~95% QoQ(IDC)'·대만 Nanya 4월 매출 +717% YoY·BofA D램 ASP +33%·매출 +51% YoY·삼성 범용 DRAM +약 100% QoQ. 스팟 6/10 DDR5 상승·DDR4 6/9 $35.90(+2.22% WoW). QoQ 하락 신호 전무, OK"
+      "now": "6월 1-20 관세청 DRAM(모듈제외) 수출단가 $82,260/kg +6% MoM·+576% YoY(same-basis 상승 확인)·MCP(HBM) $95,939/kg +15% MoM·플래시 $72,784/kg +28% MoM·SSD $21,296/kg. 수출액 DRAM(모듈포함) $11,860mn(+342% YoY)·MCP(HBM) $7,337mn(+209%·+51% MoM)·SSD $2,783mn(+405%). 2Q26E conv DRAM +58~63% QoQ·BofA ASP +33%·삼성 범용 +약 100% QoQ. 애플 capitulation·스팟>계약가 지속(Citi)으로 내년 HBM 판가·3사 LTA 계약가 상향 압력. QoQ 하락 신호 전무, OK"
     },
     "s3": {
       "name": "3사 Capex 공격 전환",
@@ -80,14 +80,14 @@
     "t3": {
       "name": "멀티플 de-rating",
       "threshold": "MU 선행 PER 고점 대비 -30% 이상 하락",
-      "now": "MU 선행 PER 9.90배(GuruFocus 6/19·고점 ~11배 대비 약 -10%, 임계 -30% 미달)·FY27 기준 9배 미만. Micron HBM4 12H NVIDIA Vera Rubin용 양산(램프 HBM3E 12H의 ~2배)·2028 HBM TAM ~$100B·6/24 Q3 FY26 실적(가이드 매출 $18.70B±0.40·EPS $8.19±0.20)·UBS·골드만·레이먼드제임스 목표가 대폭 상향 — de-rating 미발생, OK"
+      "now": "MU 선행 PER 9.90배(6/19·-10%, -30% 미달)·Micron HBM4 12H 양산·2028 HBM TAM ~$100B·6/24 Q3 실적. Citi: 애플 capitulation·스팟>계약가 지속으로 내년 HBM 판가·3사 LTA 계약가 상향 → 내년 메모리3사 추정치 상향 가능성 '훨씬' 큼. Kioxia JPM TP 80k→155k엔(+43%)·26~28 EPS +8~11% 상향(eSSD 비중 25년 34%→28년 67%)로 NAND 업종 멀티플 리레이팅 본격화 — de-rating 미발생, OK"
     }
   },
   "yellowCards": [
     {
       "id": "y1",
       "name": "수출단가 MoM 2개월 연속 하락",
-      "now": "관세청/TRASS 6월(1-10) DRAM 83,446$/kg -6.8% MoM(1-10 기준·5월 full +16.7%서 첫 월 하락, 2개월 연속 아님). 한국은행 5월 수출물가(별도 기준) D램 +7.6% MoM·플래시 +19.5% MoM로 오히려 상승. 6/11-20 same-basis 확정치 미발표(통상 6/21 전후 발표) → 7월초 6월 full 단가로 점검, 미발동",
+      "now": "관세청/TRASS 6월 1-20 DRAM(모듈제외) 수출단가 $82,260/kg +6% MoM·+576% YoY(same-basis 상승 확인) — 6월 1-10 -6.8%는 월초 믹스/타이밍 효과였음이 1-20 확정치로 입증. 2개월 연속 하락 아님(오히려 상승), 미발동",
       "on": false
     },
     {
@@ -104,6 +104,22 @@
     }
   ],
   "notes": [
+    {
+      "date": "2026-06-20",
+      "text": "[시그널 판정] 6개 매도 시그널 전부 OK 유지(토글 변경 없음·v44→v45). 핵심: 관세청 6월 1-20 DRAM(모듈제외) 수출단가 $82,260/kg +6% MoM·+576% YoY(same-basis 상승 확인) → 6월 1-10 -6.8%(월초 믹스/타이밍)가 되돌려져 옐로 y1(단가 2개월 연속 하락) 우려 해소·미발동. s2(계약가 강세) 추가 보강(MCP/HBM $95,939 +15% MoM·플래시 $72,784 +28% MoM). t3 — Citi '애플 capitulation+스팟>계약가 지속으로 내년 HBM 판가·3사 LTA 계약가 상향, 3사 추정치 상향 여력 훨씬 큼'·Kioxia JPM TP 80k→155k엔으로 NAND 리레이팅 본격화, de-rating 미발생. s1·s3·t1·t2 불변. 매수/매도 지시 없음(판정·기록만)"
+    },
+    {
+      "date": "2026-06-20",
+      "text": "[관세청 6/1-20 수출/단가] 6월 1-20 메모리 수출(통관): DRAM(모듈제외) $7,446mn(+397% YoY·-1% MoM)·DRAM(모듈포함) $11,860mn(+342%·+3% MoM)·플래시(낸드) $1,221mn(+335%·+28% MoM)·MCP(HBM) $7,337mn(+209%·+51% MoM)·SSD $2,783mn(+405%·+25% MoM). 수출단가(6월 1-20, 과거는 월전체 기준): DRAM(모듈제외) $82,260/kg(+576% YoY·+6% MoM)·DRAM(모듈포함) $58,740/kg(+491%·-4% MoM)·플래시 $72,784/kg(+546%·+28% MoM)·MCP(HBM) $95,939/kg(+119%·+15% MoM)·SSD $21,296/kg(+312%·-5% MoM). 시사점: 단가 same-basis 상승 확인(특히 HBM·낸드)으로 s2 보강·y1 미발동. 대시보드 DRAM 단독 $83.4K(6/1-10)→$82.3K(6/1-20)·플래시 $62.3K→$72.8K 갱신"
+    },
+    {
+      "date": "2026-06-20",
+      "text": "[Kioxia-JPM 리레이팅] JPM 키옥시아 목표주가 80,000엔→155,000엔 대폭 상향(상승여력 +43%). 근거: 대주주(베인 등) 매각 압박 완화로 수급 리스크 감소·LTA 매출 비중 확대로 매출 가시성↑·26H2부터 주주환원 시작 기대·26~28 EPS +8~11% 상향(컨센 대비 +9~41%). eSSD 매출 비중 25년 34%→28년 67%로 ASP 상승 견인·BiCS 8/10 공정으로 비트원가 절감. 추론형 AI로 고성능 eSSD 수요·NVIDIA cuVS/자체 AiSAQ로 SW솔루션 진화·KV캐시 최적화(CM)·HBM 보완(GP) 라인업. 시사점: NAND 업종 멀티플 리레이팅 본격화 → t3(de-rating 방어) 직접 보강·NAND 수급 우호로 s2 저변 확대(토글 변경 아님)"
+    },
+    {
+      "date": "2026-06-20",
+      "text": "[Citi-스팟>계약가] Citi Bank Research: 애플마저 가격인상 손든 가운데 스팟 가격이 계약가 대비 지속 상회. 합리적 추론 — (1)내년 HBM 판가, (2)진행/예정인 메모리3사 LTA 계약가격·조건에 상방 영향 → 내년 메모리3사 추정치가 앞으로 '훨씬' 더 높아질 가능성 큼. 시사점: 스팟-계약가 역전 지속은 차기 계약가·LTA 재협상의 선행 상방 신호 → s2(계약가 강세)·t3(추정치 상향=de-rating 방어) 동시 보강(토글 변경 아님, 전 시그널 OK 유지)"
+    },
     {
       "date": "2026-06-20",
       "text": "[시그널 판정] 6개 매도 시그널 전부 OK 유지(토글 변경 없음·v42→v43, 신규 소스 5건 반영). 측정기준: ①s1 — 공급사 재고 삼성 ~6주·전반 2~3주(8주+ 미달)·WSJ '메모리 부족 해결 거의 불가'(신규 팹 수년·국가안보로 中 대안 제한)·SemiAnalysis '메모리=AI 구조적 병목' ②s2 — Apple '메모리 1년 +6배·스마트폰 +90~95% QoQ(IDC)'·대만 Nanya 4월 매출 +717% YoY·BofA D램 ASP +33%·DDR5 스팟 상승으로 QoQ 하락 전무 ③s3 — 신규 팹 후행·Micron 합리적 증설·+25% 비트 가이던스 부재 ④t1 — 빅4 capex $725B(+77% YoY)·Bernstein 'AI DC capex $3.5조' 가정으로 하향 0개사 ⑤t2 — CXMT 캐파만 충족·점유 ~8%·할인 ~7~10%로 미달 ⑥t3 — MU 선행 PER 9.90배(6/19, -30% 미달)·HBM4 12H 양산·2028 HBM TAM $100B·6/24 Q3 FY26 실적 임박으로 de-rating 미발생. 옐로 y1·y2 미발동·y3(인상속도 둔화) 유지. $/kg 단가는 6/11-20 same-basis 확정치 미발표로 6월(1-10) 값 유지(날조 금지)"
@@ -185,7 +201,7 @@
       "text": "[시그널 판정] 6개 매도 시그널 전부 OK 유지(토글 변경 없음·v35). 신규 4건 반영: ①MS HDD 장기호황 — NAND 급등이 HDD 가격인상 주도권으로 전이(spillover), DRAM+NAND+HDD 전 스토리지 계층 동반 부족(HDD 재고 1~2주·2028까지) → s1/s2 저변 보강 ②Aletheia MU TP $1,600·서버 DRAM ASP C3Q26 +30%로 상향(기존 10~15%)·HBM 2027 +100% → s2(계약가 가시성)·t3(de-rating 방어) 직접 보강 ③NVDA $250억 회사채(3배 초과수요) — capex 펀딩 저변(f5) 보강이나 AI 부채붐·순환자금으로 신용 익스포저(f2) 심화 모니터링 ④Citi 추론 'vertical wall' 구세대 GPU까지 확산·희소성 수익화로 수요 견고. 6대 측정기준 변화 없어 전 시그널 OK·옐로카드 y1·y2 미발동·y3 유지"
     }
   ],
-  "updatedAt": "2026-06-20 (핵심 메시지 동적 구조 신설·v44)",
+  "updatedAt": "2026-06-20 (관세청 6/1-20 단가 확정·Kioxia/Citi 반영·v45)",
   "fundingVerdict": {
     "title": "현재 등급: YELLOW FLAG (모니터링)",
     "body": "단일 마진론 실패는 노이즈에 가까움. red flag 승격 조건 = 빅4 capex 가이던스 하향 + AI 신용조달비용의 구조적 상승. 분수령: 2027년 3월 소프트뱅크 $400억 브릿지론 만기."
@@ -290,6 +306,20 @@
     }
   ],
   "dailyLog": [
+    {
+      "date": "2026-06-20",
+      "summary": "관세청 6/1-20 수출단가 same-basis 상승 확인 + NAND 리레이팅(v45). DRAM(모듈제외) $82,260/kg +6% MoM·+576% YoY·MCP(HBM) $95,939 +15% MoM·플래시 $72,784 +28% MoM → 6/1-10 -6.8%(믹스/타이밍) 되돌림으로 옐로 y1 우려 해소. Kioxia JPM TP 80k→155k엔(eSSD 25→28년 34%→67%)·Citi '애플 capitulation+스팟>계약가로 내년 3사 추정치 상향 여력 훨씬 큼'. 시그널 6개 전부 OK·토글 변경 없음.",
+      "tags": [
+        "관세청 6/1-20",
+        "DRAM단가 +6%MoM",
+        "HBM $95.9K",
+        "낸드 +28%MoM",
+        "Kioxia JPM 155k",
+        "Citi 스팟>계약가",
+        "y1 해소",
+        "시그널 OK"
+      ]
+    },
     {
       "date": "2026-06-20",
       "summary": "메모리 구조적 병목·전방위 부족 재확인 + CPU 르네상스 수요축 추가(신규 소스 5건·v43). SemiAnalysis(Doug) 'GPU=엔진·HBM/DRAM=파이프, 메모리가 AI 구조적 병목'·H100 임대료 +40~50% YTD. 팀 쿡(WSJ) '가격 인상 불가피·100년 위기'·iPhone18 +$270 가능성으로 affordability 입증. Bernstein ARM TP $300→$500·서버 CPU TAM $223B(2030·6배)·CPU:GPU 1:1로 2파동 보강. Micron HBM4 12H 양산·2028 HBM $100B·대만 Nanya 4월 +717% YoY·DDR4/NAND 2027~28까지 부족. WSJ '메모리 부족 해결 거의 불가'. 각 탭 상단 '핵심 메시지' 동적 카드 신설(v44·keyMessages·매일 신규 데이터 merge 갱신). 시그널 6개 전부 OK·토글 변경 없음.",
