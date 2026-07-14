@@ -288,14 +288,16 @@ function initDashboard(){
   function tabPrice(){
     var dp=(d.dramPrice/1000).toFixed(1), fp=(d.flashPrice/1000).toFixed(1);
     var pricePct=Math.min(Math.round(d.dramPrice/2200),100);
-    function bar(l,v,p,c){return '<div class="bar-row"><div class="bar-head"><span>'+esc(l)+'</span><span class="mono" style="color:'+c+';">'+esc(v)+'</span></div><div class="bar-track"><div class="bar-fill" style="width:'+p+'%;background:'+c+';"></div></div></div>';}
+    function bar(l,v,p,c,s){return '<div class="bar-row"><div class="bar-head"><span>'+esc(l)+(s?' <span style="color:var(--ink-3);font-size:11px;">'+esc(s)+'</span>':'')+'</span><span class="mono" style="color:'+c+';">'+esc(v)+'</span></div><div class="bar-track"><div class="bar-fill" style="width:'+p+'%;background:'+c+';"></div></div></div>';}
+    function ladder(){var L=(d.priceLadder&&d.priceLadder.length)?d.priceLadder:null; if(!L){return bar("4월 확정","$66K",30,"#9A9CA3")+bar("5월 확정","$77.6K",35,"#6B6D74")+bar(d.dramPeriod,"$"+dp+"K",pricePct,"var(--ink)")+bar("기본 (YE26)","$120–150K",61,"var(--indigo)")+bar("강세","$150–220K",84,"var(--red)");} return L.map(function(b){var p=(b.w!=null?b.w:Math.min(Math.round((b.price||0)/2200),100));var v=b.v||('$'+((b.price||0)/1000).toFixed(1)+'K');return bar(b.l,v,p,b.c,b.s);}).join('');}
     var bom=(d.bomInflation||[]).map(function(b){return '<div class="chk"><span class="c">·</span><p class="t"><b>'+esc(b.part)+'</b>'+(b.now?' <span class="mono" style="color:var(--red);">'+esc(b.now)+'</span>':'')+(b.chg?' <span style="color:var(--ink-3);">'+esc(b.chg)+'</span>':'')+'</p></div>';}).join('');
     return km('price')
       + '<div class="card"><p class="eyebrow2">DRAM 수출단가 · '+esc(d.dramPeriod)+'</p>'
       + '<div class="grid2"><div class="stat"><p class="l">DRAM 단독</p><p class="v r mono">$'+dp+'K</p><p class="s">+'+d.dramMom+'% MoM · +'+d.dramYoy+'% YoY</p></div>'
       + '<div class="stat"><p class="l">Flash</p><p class="v r mono">$'+fp+'K</p><p class="s">+'+d.flashMom+'% MoM · +'+d.flashYoy+'% YoY</p></div></div>'
-      + '<div class="divider"></div><p class="eyebrow2">DRAM $/kg 추이 → 시나리오</p>'
-      + bar("4월 확정","$66K",30,"#9A9CA3")+bar("5월 확정","$77.6K",35,"#6B6D74")+bar(d.dramPeriod,"$"+dp+"K",pricePct,"var(--ink)")+bar("기본 (YE26)","$120–150K",61,"var(--indigo)")+bar("강세","$150–220K",84,"var(--red)")
+      + '<div class="divider"></div><p class="eyebrow2">DRAM(모듈제외) $/kg 순별 추이 → 시나리오</p>'
+      + ladder()
+      + '<p class="note">6월 순별 하락은 MCP(HBM) 재분류·DRAM 모듈물량 급증 믹스효과 — 7/1-10 $96.5K(+15.7% MoM)로 급반등. 출처 메리츠/TRASS.</p>'
       + '</div>'
       + '<div class="card"><p class="eyebrow2">계약가 (TrendForce)</p>'
       + '<div class="grid2"><div class="stat"><p class="l">conv DRAM Q2</p><p class="v g mono">+58~63%</p><p class="s">QoQ · Q3/Q4 상향</p></div>'
@@ -377,20 +379,4 @@ function initDashboard(){
   }
 
   function render(){
-    document.getElementById("tabsRoot").innerHTML = tabs.map(function(t){return '<button class="tab'+(t.id===activeTab?' active':'')+'" data-tab="'+t.id+'">'+esc(t.label)+'</button>';}).join('');
-    document.getElementById("root").innerHTML = renderBody();
-    document.querySelectorAll(".tab").forEach(function(b){b.addEventListener("click",function(){activeTab=b.getAttribute("data-tab");render();window.scrollTo({top:0,behavior:'smooth'});});});
-  }
-  render();
-}
-
-(function(){
-  function start(){try{initDashboard();}catch(e){console.error(e);}}
-  var s=document.createElement('script');
-  s.src='thesis-data.js?_='+Date.now();
-  s.onload=start; s.onerror=start;
-  document.head.appendChild(s);
-})();
-</script>
-</body>
-</html>
+    document.getElementById("tabsRoot").innerHTML = tabs.map(function(t){return '<button class="tab'+(t.id===activeTab?' active':'')+'" data-tab="'+t.id+'">'+
