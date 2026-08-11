@@ -245,6 +245,34 @@ function initDashboard(){
     }).join('')+'</div>';
   }
 
+  function fundingFeatureCard(){
+    var f=d.fundingFeature; if(!f) return '';
+    var stats=(f.stats||[]).map(function(s){
+      return '<div style="flex:1 1 0;min-width:68px;text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 6px;">'
+        +'<div style="font-size:15px;font-weight:800;color:var(--indigo);letter-spacing:-0.02em;line-height:1.1;">'+esc(s.v)+'</div>'
+        +'<div style="font-size:10px;color:var(--ink-3);margin-top:3px;line-height:1.2;">'+esc(s.l)+'</div></div>';
+    }).join('');
+    var firms=(f.firms||[]).map(function(x){
+      return '<span style="font-size:10.5px;font-weight:600;color:var(--ink-2);background:var(--indigo-soft);border-radius:6px;padding:3px 8px;">'+esc(x)+'</span>';
+    }).join(' ');
+    return '<div class="card" style="border:1px solid rgba(79,70,229,0.30);background:linear-gradient(180deg,#F1F2FF 0%,var(--surface) 58%);box-shadow:0 10px 34px rgba(79,70,229,0.14);">'
+      +'<div style="font-size:10px;font-weight:800;letter-spacing:0.09em;text-transform:uppercase;color:var(--indigo);margin-bottom:8px;">'+esc(f.kicker)+'</div>'
+      +'<div style="display:flex;align-items:baseline;gap:13px;flex-wrap:wrap;">'
+        +'<div style="font-size:40px;font-weight:900;color:var(--indigo);letter-spacing:-0.03em;line-height:0.95;">'+esc(f.big)+'</div>'
+        +'<div style="flex:1;min-width:180px;">'
+          +'<div style="font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-0.01em;line-height:1.25;">'+esc(f.title)+'</div>'
+          +'<div style="font-size:12px;color:var(--ink-2);margin-top:3px;line-height:1.35;">'+esc(f.sub)+'</div>'
+        +'</div>'
+      +'</div>'
+      +'<div style="display:flex;gap:7px;margin:15px 0 13px;flex-wrap:wrap;">'+stats+'</div>'
+      +'<div style="background:var(--green-soft);border-radius:9px;padding:10px 12px;margin-bottom:8px;"><p style="margin:0;font-size:12.5px;font-weight:700;color:var(--green);line-height:1.5;">💥 '+esc(f.why)+'</p></div>'
+      +'<div style="background:var(--amber-soft);border-radius:9px;padding:10px 12px;margin-bottom:12px;"><p style="margin:0;font-size:12px;font-weight:600;color:var(--amber);line-height:1.5;">⚠ '+esc(f.watch)+'</p></div>'
+      +(f.proof?'<p style="font-size:11px;color:var(--ink-3);margin:0 0 11px;line-height:1.45;">'+esc(f.proof)+'</p>':'')
+      +'<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px;">'+firms+'</div>'
+      +(f.mem?'<div style="border-top:1px dashed var(--line);padding-top:10px;"><p style="font-size:11.5px;color:var(--ink-2);margin:0;font-weight:600;line-height:1.45;">'+esc(f.mem)+'</p></div>':'')
+      +'</div>';
+  }
+
   function correctionCard(){
     var c=d.correctionNote; if(!c) return '';
     var warn=c.level==='warn';
@@ -381,6 +409,7 @@ function initDashboard(){
       + '<div class="verdict '+(allClear?'clear':'warn')+'"><p style="font-size:13px;font-weight:700;margin:0;color:'+(allClear?'var(--green)':'var(--red)')+';">'+(allClear?'✓ 전 시그널 클리어':'⚠ TIER 1 경고 '+t1Count+'개')+'</p><p style="font-size:11px;color:var(--ink-2);margin:4px 0 0;">'+(allClear?'풀 홀딩 유지':(t1Count>=2?'30–50% 비중 축소 검토':'추가 매수 중단'))+(yOn?' · 옐로카드 '+yOn+'개 관찰':'')+'</p></div>'
       + '</div>'
       + km('funding')
+      + fundingFeatureCard()
       + '<div class="card"><p class="eyebrow2">AI 펀딩 · 신용 스트레스</p>'+ffHtml+(fv?'<div class="verdict" style="background:var(--amber-soft);border:1px solid rgba(180,83,9,0.18);"><p style="font-size:13px;font-weight:700;margin:0;color:var(--amber);">'+esc(fv.title)+'</p><p style="font-size:11px;color:var(--ink-2);margin:4px 0 0;">'+esc(fv.body)+'</p></div>':'')+'</div>';
   }
 
